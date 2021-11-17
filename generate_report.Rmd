@@ -24,20 +24,50 @@ library(data.table)
 library(DT)
 
 # load helper functions
-source(r'(C:\GitHub\motus_scripts\helper_functions.R)')
+source(r'(C:\GitHub\motus\helper_functions.R)')
 ```
 
 ```{r message=F, results=F, warning=F}
 
-# only download new data if specified 
-if (download_new_data == T){
+# if on BSC network, get the most recent list of receivers
+# from the DB; otherwise grab the most recent local file
+# TODO make function that queries the db and saves a local file
+if (bsc_network == T){
+  con <- connect_to_db()
+  all_recv_deps <- DBI::dbGetQuery(con, 'select * from vwBase_receivers_deployments')
+} else all_recv_deps <- all_deps() # grab the most recent local file
+
+
+# get unique tag_deployID's from det_taghits_daily if specified
+if (download_new_data == 1){
+  if (bsc_network == F) stop('Not on BSC network')
+  # TODO should also just test to see if the connection can be established before moving on
+  # Get list of unique recv deployment Id'd for the site
+  site_deploys <-
+    all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
+                             grepl(proj, recvProjectID)) %>% 
+    distinct(recvDeployID)
+  query <- 
+    paste0('select tag_deploy_id, [date], n_hits, a.tag_id, species_name, test
+           from det_taghits_daily a
+           left join tags_deployments b on b.id = a.tag_deploy_id
+           where sensor_deploy_id in (',
+           toString(site_deploys$recvDeployID), ')')
+  daily_summary <- DBI::dbGetQuery(con, query)
+  summary <- daily_summary %>% 
+    filter(test != 1) %>% 
+    group_by(tag_deploy_id) %>% 
+    summarise(species_name,
+              first_date = min(date),
+              map_link = paste0('https://motus.org/data/track?tagDeploymentId=', tag_deploy_id))
+} 
+
+
+# download new data from R if specified
+if (download_new_data == 1){
   motus_login()
   download_site_data(site, proj)
 } 
-
-# load all known receiver deployments as data frame
-# this uses a local copy, so may need to be updated
-all_recv_deps <- all_deps()
 
 # get the most recent allruns RDS file for the site
 # This is a folder that contains only allruns files for sites, appended with the date
@@ -166,7 +196,7 @@ map <- map_tracks(goodruns_summary, taghits_file)
 
 ```
 
-```{r, fig.keep=T, results=T, message=T, warning=F, eval=T, fig.show=T}
+```{r, fig.keep=T, results=T, message=T, eval=T, fig.show=T}
 # view the map
 map
 
