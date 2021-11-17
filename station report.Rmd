@@ -1,0 +1,367 @@
+---
+title: "Motus Station Report"
+author: "Lucas Berrigan - Motus"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  pdf_document: default
+  html_document: default
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+##################################################################
+#### 
+#### MOTUS STATION REPORT
+#### Lucas Berrigan
+#### Oct 29, 2019
+#### 
+##################################################################
+####
+#### Before running this script, ensure you have downloaded all
+#### data you need for the receiver you want to plot.
+####  - The script expects an RDS file of the 'alltags' table 
+####      with the same name as the as the receiver serial number.
+####  - Use 'download data.r' to make this file.
+#### 
+#### This script creates a station summary for one location. It can
+#### combine multiple recevier serial numbers and deployments using 
+#### the options below. To change title and authorship, edit the
+#### first two lines of this document.
+#### 
+##################################################################
+#### 
+#### Folder where data is stored
+      data_folder <- '../Data/'
+#### 
+#### Receiver serial numbers  - A vector of serial numbers (strings)
+      receiver <-  c('') 
+#### 
+#### The name that will appear on the report - Default = ''
+      receiver.name <- ''
+#### 
+#### A keyword common to all deployments - Default = ''
+      receiver.deploy.name <- ''
+#### 
+#### All data before this date will be filtered out - default = as.Date('2000-01-01')
+      earliest.date <- as.Date('2000-01-01')
+#### 
+#### List of tag deploy IDs to omit - default = c(0)
+      tags_to_omit <- c(0)
+#### 
+##################################################################
+
+```
+
+
+```{r load, results = 'hide'}
+
+# Load Libraries
+library(tidyverse)
+library(rworldmap)
+library(rworldxtra)
+library(motus)
+library(devtools)
+library(lubridate)
+library(scales)
+library(knitr)
+library(mapdata)
+
+# Set session time zone to GMT
+Sys.setenv(tz = "GMT")
+
+
+# Load the RDS file and clean it up.
+df <- paste0(data_folder, "proj", receiver, ".rds") %>%
+  map_dfr(readRDS) %>% 
+  filter(!tagDeployID %in% tags_to_omit,
+         grepl(receiver.deploy.name, recvDeployName)
+         ) %>%
+  mutate(ts = as.POSIXct(ts, origin = '1970-01-01'),
+         lat = ifelse(is.na(gpsLat), recvDeployLat, gpsLat),
+         lon = ifelse(is.na(gpsLon), recvDeployLon, gpsLon)) %>%
+  distinct()
+
+# Remove unwanted tag deployments and dates
+df <- df[!duplicated(df$hitID),] %>% filter(runLen > 2, !is.na(tagProjID), !is.na(speciesEN)) %>%
+  filter(ts > earliest.date)
+
+recv.df <- read.csv(paste0(data_folder, 'receiver-deployments.csv')) %>%
+  mutate(tsStart = as.POSIXct(tsStart, origin = '1970-01-01'),
+         tsEnd = as.POSIXct(tsEnd, origin = '1970-01-01'))
+
+cols <- c("#89C5DA", "#DA5724", "#74D944", "#CE50CA", "#C0717C", "#CBD588", "#5F7FC7", 
+          "#673770", "#D3D93E", "#38333E", "#508578", "#D7C1B1", "#689030", "#AD6F3B", "#CD9BCD", 
+          "#D14285", "#6DDE88", "#652926", "#7FDCC0", "#C84248", "#8569D5", "#5E738F", "#D1A33D", 
+          "#8A7C64", "#599861")
+
+```
+# `r receiver.name`
+
+<div style="border:solid 1px #888;background:#FDD;padding:5px;">
+#### Disclaimer:
+These data have not been inspected for false positives. Broad filteres have been applied do reduce the amount of erroneous data, but some may still exist in this report. Any suspicious data can be reported to us here: motus@birdscanada.org
+</div>
+
+```{r output, fig.width = 5, fig.height = 4, echo=FALSE}
+
+tower.lat <- median(df$lat, na.rm = T)
+tower.lon <- median(df$lon, na.rm = T)
+
+# Make a new high resolution map
+worldMap <- getMap(resolution = "high")
+# Connect up all the points so the polygons are closed
+worldMap.df <- fortify(worldMap)
+
+#usa <- map_data('usa')
+#canada <- map_data('world', 'Canada')
+
+#naMap <- fortify(rbind(usa, canada))#
+#
+
+# Get lat/lon bounding box around these sites
+
+
+# Get lat/lon bounding box around these sites
+latLonBounds <- list((tower.lon + c(-5, 5)),
+  (tower.lat + c(-5, 5))
+)
+
+#latLonBounds <- list((c(-75, -57)),
+#  (c(40, 50))
+#)
+
+
+
+# Get lat/lon bounding box around these sites
+latLonBounds <- list((tower.lon + c(-1, 1)),
+  (tower.lat + c(-1, 1))
+)
+# Map data
+recv.df %>%
+  filter(latitude > latLonBounds[[2]][1] & latitude < latLonBounds[[2]][2],
+         longitude > latLonBounds[[1]][1] & longitude < latLonBounds[[1]][2],
+         is.na(tsEnd)) %>% 
+ggplot(aes(longitude, latitude))+
+  geom_polygon(data = worldMap, aes(long, lat,group=group), fill="#DDDDDD", colour="#AAAAAA")+
+#  geom_polygon(data = worldRivers, aes(long, lat, group=group), fill="#0000FF", color = '#0000FF')+
+  geom_point(aes(fill = 'red'),
+    shape = 21,
+    stroke = 2, 
+    size = 2, 
+    alpha = 1)+
+  geom_point(aes(x = tower.lon, y = tower.lat), shape = 8,
+    color = 'black',
+    stroke = 2,
+    size = 4, 
+    alpha = 1)+
+  geom_point(aes(x = tower.lon, y = tower.lat, fill = 'yellow'), shape = 21,
+    color = 'black',
+    stroke = 2, 
+    size = 3, 
+    alpha = 1)+
+  coord_fixed(xlim = latLonBounds[[1]], ylim = latLonBounds[[2]])+
+  theme(panel.background = element_rect(fill = '#CCDDFF'),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        axis.title = element_blank()) +
+  scale_fill_manual(values = c('red' = 'red', 'yellow' = 'yellow'), guide = 'legend', labels = c('Other stations', receiver.name))+ 
+  guides(fill = guide_legend(reverse = TRUE))
+
+
+
+if (F) {
+# Map new suspect data
+recv.df %>%
+  filter(latitude > latLonBounds[[2]][1] & latitude < latLonBounds[[2]][2],
+         longitude > latLonBounds[[1]][1] & longitude < latLonBounds[[1]][2],
+         is.na(tsEnd)) %>% 
+ggplot(aes(longitude, latitude))+
+  geom_polygon(data = naMap, aes(long, lat,group=group), fill="#DDDDDD", colour="#AAAAAA")+
+  geom_point(aes(fill = 'red'),
+    shape = 21,
+    stroke = 2, 
+    size = 2, 
+    alpha = 1)+
+  geom_point(aes(x = tower.lon, y = tower.lat), shape = 8,
+    color = 'black',
+    stroke = 2,
+    size = 4, 
+    alpha = 1)+
+  geom_point(aes(x = tower.lon, y = tower.lat, fill = 'yellow'), shape = 21,
+    color = 'black',
+    stroke = 2, 
+    size = 3, 
+    alpha = 1)+
+  coord_fixed(xlim = latLonBounds[[1]], ylim = latLonBounds[[2]])+
+  theme(panel.background = element_rect(fill = '#CCDDFF'),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  scale_fill_manual(values = cols)
+
+}  
+
+recv.stats.df <- recv.df %>%
+  summarise(min.ts = min(tsStart, na.rm = T), max.ts = max(tsEnd)) %>%
+  mutate(max.ts = as.POSIXct(ifelse(is.na(max.ts), Sys.time(), max.ts), origin = '1970-01-01'),
+         numDays = round(difftime(max.ts, min.ts, units = 'days')),
+         numYears = year(max.ts) - year(min.ts))
+```
+  
+ **Number of different animals detected:** `r length(unique(df$tagDeployID))`
+
+
+ **Number of different species detected:** `r length(unique(df$speciesEN))`
+
+
+ **Total number of detections over all years:** `r length(unique(df$hitID))`
+
+
+ **Number of days receiver has been running:** `r recv.stats.df$numDays`
+
+
+ **Number of years receiver has been running:** `r recv.stats.df$numYears`
+
+```{r}
+
+df %>%
+  filter(runLen > 2, !is.na(tagDeployID)) %>%
+  mutate(Year = as.character(year(ts))) %>%
+  group_by(Year) %>%
+  summarise(`Species` = length(unique(speciesEN)), `Individuals` = length(unique(tagDeployID)), `Detections` = n()) %>%
+  kable()
+
+```
+
+
+```{r, fig.width = 7, fig.height = 4.5}
+
+df.bySpp <- df %>%
+  filter(runLen > 2, !is.na(speciesEN)) %>%
+  group_by(speciesEN) %>%
+  summarise(Hits = n(), Individuals = length(unique(tagDeployID)), Days = length(unique(date(ts))))
+
+df.byProj <- df %>%
+  filter(runLen > 2, !is.na(tagProjID), !is.na(speciesEN)) %>%
+  group_by(tagProjName) %>%
+  summarise(Hits = n(), Individuals = length(unique(tagDeployID)), Days = length(unique(date(ts))))
+
+  
+  df.bySpp %>%
+    mutate(Species = ifelse(speciesEN %in% arrange(top_n(df.bySpp, 24, Individuals), -Individuals)[1:24,]$speciesEN, speciesEN, 'Other')) %>%  
+    group_by(Species) %>%
+    summarise(Hits = sum(Hits, na.rm = T), Individuals = sum(Individuals, na.rm = T), Days = max(Days, na.rm = T)) %>%
+    ggplot(aes(x = "", y = Individuals, fill = fct_reorder(Species, Individuals))) +
+    geom_bar(width = 1, stat = "identity")+
+    geom_text(aes(label = Individuals), position = position_stack(vjust = 0.5), fontface = 'bold') +
+    coord_polar("y", start = 0)+
+    labs(y = "Number of Individual Animals", x = "", fill = 'Species', title = "Number of individual animals per species")+
+    scale_fill_manual(values = cols)+
+    theme_bw()+
+    theme(panel.border = element_blank())+ 
+    guides(fill = guide_legend(reverse = TRUE))
+```
+
+---
+  
+```{r, fig.width = 7, fig.height = 4.5}
+
+df.byProj %>%
+  mutate(Project = as.character(ifelse(tagProjName %in% arrange(top_n(df.byProj, 24, Individuals), -Individuals)[1:24,]$tagProjName, tagProjName, 'Other'))) %>%  
+  group_by(Project) %>%
+  summarise(Hits = sum(Hits, na.rm = T), Individuals = sum(Individuals, na.rm = T), Days = max(Days, na.rm = T)) %>%
+  ggplot(aes(x = "", y = Individuals, fill = fct_reorder(Project, Individuals))) +
+  geom_bar(width = 1, stat = "identity")+
+  geom_text(aes(label = Individuals), position = position_stack(vjust = 0.5), fontface = 'bold') +
+  coord_polar("y", start = 0)+
+  labs(y = "Number of Individual Animals", x = "", title = "Number of individuals animals per project", fill = 'Project ID')+
+  scale_fill_manual(values = cols)+
+  theme_bw()+
+  theme(panel.border = element_blank())+ 
+  guides(fill = guide_legend(reverse = TRUE))
+```
+
+
+
+
+
+
+```{r, fig.width = 7, fig.height = 4.5}
+
+top5 <- df %>% 
+  filter(runLen > 2, !is.na(tagDeployID)) %>%
+  group_by(speciesEN) %>%
+  summarise(nInd = length(unique(tagDeployID)), nHits = n()) %>%
+  mutate(propHits = nHits/nrow(df)) %>%
+  arrange(desc(nHits))
+
+top <- top5 %>%
+  mutate(Species = ifelse(nHits %in% top5[1:ifelse(nrow(top5) == 5, 5, 4),]$nHits, speciesEN, 'Other')) %>%
+  select(speciesEN, Species)
+
+plot.binwidth <- as.integer(round(difftime(range(df$ts)[2], range(df$ts)[1])/100))
+
+plot.binwidth <- ifelse(plot.binwidth == 0, 1, plot.binwidth)
+
+df %>%
+  filter(runLen > 2, !is.na(tagDeployID)) %>%
+  mutate(date = date(ts),
+         test = df[df$speciesEN == speciesEN,]$tagDeployID[1]) %>%
+  group_by(tagDeployID, speciesEN, date) %>%
+  summarise(nHits = n()) %>% 
+  left_join(top, by = 'speciesEN') %>%
+  ggplot(aes(date, fill = Species)) +
+  geom_histogram(binwidth = plot.binwidth)+ 
+  scale_fill_manual(values = cols)+
+  labs(x = 'Date', y = 'Number of Individuals', fill = 'Species', title = 'Number of individuals detected each day')
+```
+
+
+---
+
+
+```{r, fig.width = 7, fig.height = 4.5}
+
+df %>%
+  filter(runLen > 2, !is.na(tagDeployID)) %>%
+  mutate(Hour = hour(as.POSIXct(ts, origin = '1970-01-01'))-4,
+         Hour = ifelse(Hour < 0, Hour + 24, Hour)) %>%
+  left_join(top, by = 'speciesEN') %>%
+  ggplot(aes(Hour, fill = Species)) +
+  geom_histogram(bins = 24)+ 
+  labs(x = 'Hour', y = 'Number of detections', fill = 'Species', title = 'Number of detections by time of day')
+ 
+
+```
+
+
+
+## List of all individuals detected at this station
+Click on Tag ID to learn more about the individual or 'view track' to see its animated flight path.
+
+```{r}
+
+
+
+df %>% 
+  filter(runLen > 2, !is.na(tagDeployID)) %>%
+  group_by(tagDeployID, speciesEN) %>%
+  summarise(`Detections` = n(), 
+            `Days` = length(unique(date(ts))), 
+            `First detected` = min(date(ts)), 
+            `Last detected` = max(date(ts))) %>%
+  ungroup() %>%
+  mutate(`   ` = paste("[View Track]", "(https://motus.org/data/track?tagDeploymentId=", tagDeployID, ")", sep = ''),
+         tagDeployID = paste("[", tagDeployID, "]", "(https://motus.org/data/tagDeployment?id=", tagDeployID, ")", sep = '')) %>%
+  arrange(desc(`Last detected`)) %>%
+  rename(`Tag ID` = tagDeployID, Species = speciesEN) %>%
+  kable()
+
+```
