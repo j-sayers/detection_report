@@ -74,7 +74,7 @@ data <- 2
 
 # specify whether to download new site data (TRUE)
 # or use the most recent local "allruns" RDS file (FALSE)
-download_new_data <- T
+download_new_data <- F
 
 
 

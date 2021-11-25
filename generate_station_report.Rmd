@@ -114,7 +114,7 @@ The table below summarizes all tagged animals that have been detected at this st
 <br>
 
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
-datatable(goodruns_summary[, c(6, 8, 13)],
+datatable(goodruns_summary[, c('speciesEN', 'first_date', 'map_link_href')],
           colnames = c('Species' = 'speciesEN',
                        'Date Detected' = 'first_date',
                        'View on Motus.org' = 'map_link_href'),
