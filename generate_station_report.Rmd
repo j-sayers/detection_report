@@ -24,7 +24,7 @@ library(data.table)
 library(DT)
 
 # load helper functions
-source(r'(C:\GitHub\motus_scripts\helper_functions.R)')
+source(r'(C:\GitHub\motus\helper_functions.R)')
 ```
 
 ```{r message=F, results=F, warning=F}

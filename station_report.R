@@ -17,6 +17,7 @@ sites <- c(
   # 'Aldverville Black Oak Savanna',
   # 'Arkey\'s Acres',
   # 'Auzins',
+  'Aylmer'
   # 'Binbrook Conservation Area',
   # 'Bolin_Port_Burwell',
   # 'Cabot_Head',
@@ -31,7 +32,7 @@ sites <- c(
   # 'Merlin',
   # 'Mosaic Port Maitland',
   # 'Nanticoke',
-  'Peers'
+  # 'Peers'
   # 'Point Farms Provincial Park',
   # 'Prince Edward Point Bird Observatory',
   # 'Old Cut'
@@ -73,7 +74,7 @@ data <- 2
 
 # specify whether to download new site data (TRUE)
 # or use the most recent local "allruns" RDS file (FALSE)
-download_new_data <- F
+download_new_data <- T
 
 
 
@@ -83,7 +84,7 @@ download_new_data <- F
 # if TRUE the prepared query will be supplied
 # in the event that the taghits_tracks has to be 
 # obtained from the remote server
-tracks_from_db <- F
+tracks_from_db <- T
 
 
 
@@ -115,7 +116,7 @@ to_remove <- c(
 
 
 for (site in sites){
-  rmarkdown::render(r'(C:\GitHub\motus_scripts\generate_report.Rmd)',
+  rmarkdown::render(r'(C:\GitHub\station_report\generate_station_report.Rmd)',
                     output_file = paste0(outdir,
                                          site,
                                          '_',
