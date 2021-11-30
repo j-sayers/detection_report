@@ -17,7 +17,7 @@ sites <- c(
   # 'Aldverville Black Oak Savanna',
   # 'Arkey\'s Acres',
   # 'Auzins',
-  'Aylmer'
+  'Aylmer',
   # 'Binbrook Conservation Area',
   # 'Bolin_Port_Burwell',
   # 'Cabot_Head',
@@ -28,7 +28,7 @@ sites <- c(
   # 'Hentz',
   # 'Hullet Provincial Wildlife Area',
   # 'Koffler',
-  # 'MagnetZawan',
+  # 'Magnetawan',
   # 'Merlin',
   # 'Mosaic Port Maitland',
   # 'Nanticoke',
@@ -38,7 +38,7 @@ sites <- c(
   # 'Old Cut'
   # 'Camp Onondaga - THFC'
   # 'Rathwell',
-  # 'Russell Reid PS',
+  'Russell Reid PS'
   # 'Ruthven',
   # 'Short Hills Provincial Park',
   # 'SpruceHaven',
@@ -60,7 +60,7 @@ proj <- 1
 
 # Are you on the BSC network? If so, then the database
 # will be queried directly
-bsc_network <- T
+bsc_network <- F
 
 
 
@@ -74,7 +74,7 @@ data <- 2
 
 # specify whether to download new site data (TRUE)
 # or use the most recent local "allruns" RDS file (FALSE)
-download_new_data <- F
+download_new_data <- T
 
 
 
@@ -111,6 +111,7 @@ to_remove <- c(
   ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
   ,24749 # https://motus.org/data/track?tagDeploymentId=24749
   ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
+  ,24747 # https://motus.org/data/track?tagDeploymentId=24747
   )
 
 
