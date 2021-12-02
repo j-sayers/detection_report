@@ -31,7 +31,7 @@ sites <- c(
   # 'Merlin',
   # 'Mosaic Port Maitland',
   # 'Nanticoke',
-  'Peers'
+  # 'Peers',
   # 'Point Farms Provincial Park',
   # 'Prince Edward Point Bird Observatory',
   # 'Old Cut'
@@ -47,13 +47,17 @@ sites <- c(
   # 'Wilmot Creek',
   # 'Zorad',
   # 'Werden'
+  'Josie\'s Farm',
+  'Franks Tower',
+  'Knowles Tower',
+  'McQueens'
 )
 
 
 
 # must define a project since the same site name 
 # may exist in multiple projects
-proj <- 1
+proj <- 145
 
 
 
@@ -64,16 +68,10 @@ bsc_network <- T
 
 
 # specify how to get the site data
-# 1) download data via the R package
-# 2) query det_taghits_daily based on sensor_deploy_id
+# 1) query det_taghits_daily based on sensor_deploy_id
+# 2) download data via the R package
 # 3) use the most recent allruns.RDS file for this site (if one exists)
-data <- 2
-
-
-
-# specify whether to download new site data (TRUE)
-# or use the most recent local "allruns" RDS file (FALSE)
-download_new_data <- F
+data <- 1
 
 
 
@@ -83,7 +81,7 @@ download_new_data <- F
 # if TRUE the prepared query will be supplied
 # in the event that the taghits_tracks has to be 
 # obtained from the remote server
-tracks_from_db <- F
+tracks_from_db <- T
 
 
 
@@ -115,7 +113,7 @@ to_remove <- c(
 
 
 for (site in sites){
-  rmarkdown::render(r'(C:\GitHub\motus_scripts\generate_report.Rmd)',
+  rmarkdown::render(r'(C:\GitHub\station_report\generate_report.Rmd)',
                     output_file = paste0(outdir,
                                          site,
                                          '_',

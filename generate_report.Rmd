@@ -7,6 +7,7 @@ editor_options:
   chunk_output_type: inline
 ---
 
+
 ```{r setup, include=FALSE}
 
 ################################################################################
@@ -16,7 +17,13 @@ editor_options:
 ###
 ################################################################################
 
-knitr::opts_chunk$set(echo = F, results = F, message = F, fig.align = 'right')
+
+knitr::opts_chunk$set(
+  echo = F,
+  results = F,
+  message = F,
+  fig.align = 'right'
+)
 
 library(motus)
 library(tidyverse)
@@ -27,74 +34,8 @@ library(DT)
 source(r'(C:\GitHub\motus\helper_functions.R)')
 ```
 
-```{r message=F, results=F, warning=F}
 
-# if on BSC network, get the most recent list of receivers
-# from the DB; otherwise grab the most recent local file
-# TODO make function that queries the db and saves a local file
-if (bsc_network == T){
-  con <- connect_to_db()
-  all_recv_deps <- DBI::dbGetQuery(con, 'select * from vwBase_receivers_deployments')
-} else all_recv_deps <- all_deps() # grab the most recent local file
-
-
-# get unique tag_deployID's from det_taghits_daily if specified
-if (download_new_data == 1){
-  if (bsc_network == F) stop('Not on BSC network')
-  # TODO should also just test to see if the connection can be established before moving on
-  # Get list of unique recv deployment Id'd for the site
-  site_deploys <-
-    all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
-                             grepl(proj, recvProjectID)) %>% 
-    distinct(recvDeployID)
-  query <- 
-    paste0('select tag_deploy_id, [date], n_hits, a.tag_id, species_name, test
-           from det_taghits_daily a
-           left join tags_deployments b on b.id = a.tag_deploy_id
-           where sensor_deploy_id in (',
-           toString(site_deploys$recvDeployID), ')')
-  daily_summary <- DBI::dbGetQuery(con, query)
-  summary <- daily_summary %>% 
-    filter(test != 1) %>% 
-    group_by(tag_deploy_id) %>% 
-    summarise(species_name,
-              first_date = min(date),
-              map_link = paste0('https://motus.org/data/track?tagDeploymentId=', tag_deploy_id))
-} 
-
-
-# download new data from R if specified
-if (download_new_data == 1){
-  motus_login()
-  download_site_data(site, proj)
-} 
-
-# get the most recent allruns RDS file for the site
-# This is a folder that contains only allruns files for sites, appended with the date
-# so the most recent one is the last in an alphabetical list
-rds_file <- max(gtools::mixedsort(list.files(path = paste0(outdir, 'site_allruns/'),
-                                             pattern = site, 
-                                             full.names = T)))
-
-# load allruns from local file
-allruns <- as.data.table(read_rds(rds_file))
-
-# remove runs shorter than 4 as well as Test tags
-# and any tag without a species
-# NOTE: should fitler out those 
-goodruns <- allruns %>% 
-  filter(runLen > 3,
-         !is.na(speciesEN),
-         tagDeployTest == 0 | is.na(tagDeployTest))
-
-goodruns_summary <- summarize_runs(goodruns) %>% 
-  mutate(first_date = format(first_date, '%Y-%m-%d'),
-         map_link_href = paste0('<a href="', map_link, '" target="_blank">View on Motus.org</a>')) %>% 
-  arrange(desc(first_date))
-
-goodruns_summary <- goodruns_summary %>% 
-  filter(!(tagDeployID %in% to_remove))
-
+```{r get detection summary, message = F, results = F, warning = F}
 
 # create list of all deployments with this site name and project
 # NOTE: the exact name is needed
@@ -102,14 +43,102 @@ site_deploys <-
   all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
                            grepl(proj, recvProjectID))
 
+# if on BSC network, get the most recent list of receivers
+# from the DB; otherwise grab the most recent local file
+# TODO make function that queries the db and saves a local file
+if (bsc_network == T) {
+  con <- connect_to_db()
+  all_recv_deps <-
+    DBI::dbGetQuery(con, 'select * from vwBase_receivers_deployments')
+} else
+  all_recv_deps <- all_deps() # grab the most recent local file
+
+
+# get unique tag_deployID's from det_taghits_daily if specified
+if (data == 1) {
+  if (bsc_network == F)
+    stop('Not on BSC network')
+  # TODO should also just test to see if the connection can be established before moving on
+
+  query <-
+    paste0(
+            'select tag_deploy_id, [date], n_hits, a.tag_id, english_name, test
+      from det_taghits_daily a
+      left join tags_deployments b on b.id = a.tag_deploy_id
+      left join lk_species c on c.species_id = b.species_id
+      where sensor_deploy_id in (',
+      toString(unique(site_deploys$recvDeployID)),
+      ')'
+          )
+  daily_summary <- DBI::dbGetQuery(con, query)
+  summary <- daily_summary %>%
+    filter(test != 1) %>%
+    group_by(tagDeployID = tag_deploy_id) %>%
+    summarise(
+      'Species' = english_name,
+      'First date detected' = min(date),
+      'View on Motus.org' = paste0('<a href="',
+        'https://motus.org/data/track?tagDeploymentId=',
+        tag_deploy_id,
+        '" target="_blank">View on Motus.org</a>'
+      )
+    ) %>%
+    arrange(desc('First date detected'))
+} else {
+  if (data == 2) {
+    motus_login()
+    download_site_data(site, proj)
+  }
+  # get the most recent allruns RDS file for the site
+  # This is a folder that contains only allruns files for sites, appended with the date
+  # so the most recent one is the last in an alphabetical list
+  rds_file <-
+    max(gtools::mixedsort(list.files(
+      path = paste0(outdir, 'site_allruns/'),
+      pattern = site,
+      full.names = T
+    )))
+  
+  allruns <- as.data.table(read_rds(rds_file))
+  
+  # remove runs shorter than 4 as well as Test tags
+  # and any tag without a species
+  # TODO: should filter out those with motusFilter == 0 too
+  goodruns <- allruns %>%
+    filter(runLen > 3,
+           !is.na(speciesEN),
+           tagDeployTest == 0 | is.na(tagDeployTest))
+  
+  summary <- summarize_runs(goodruns) %>%
+    mutate(
+      'First date detected' = format(first_date, '%Y-%m-%d'),
+      'View on Motus.org' = paste0('<a href="',
+        map_link,
+        '" target="_blank">View on Motus.org</a>'
+      )
+    ) %>%
+    arrange(desc('First date detected'))
+  
+}
+
+# remove any tag_deploy_IDs that have been flagged
+summary <- summary %>%
+  filter(!(tagDeployID %in% to_remove))
+
+```
+
+
+```{r dates and location of station deployments}
+
 # get the first deployment for this site
-first_deploy <- site_deploys[tsStart == min(tsStart), ]
+first_deploy <- site_deploys[site_deploys$tsStart ==  min(site_deploys$tsStart), ]
 
 lat <- first_deploy$latitude
 lon <- first_deploy$longitude
 latlon <- paste0('http://www.openstreetmap.org/?mlat=', lat, '&mlon=', lon, '&zoom=7')
 
 ```
+
 
 <br>
 
@@ -124,9 +153,9 @@ Start Date: `r format(as.Date(first_deploy$dtStart), '%B %d, %Y')`
 
 Report Date: `r format(Sys.Date(), '%B %d, %Y')`
 
-Number of species detected: `r length(unique(goodruns_summary$speciesEN))`
+Number of species detected: `r length(unique(summary$Species))`
 
-Number of individuals detected: `r nrow(goodruns_summary)`
+Number of individuals detected: `r nrow(summary)`
 
 </div>
 
@@ -144,10 +173,7 @@ The table below summarizes all tagged animals that have been detected at this st
 <br>
 
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
-datatable(goodruns_summary[, c(6, 8, 13)],
-          colnames = c('Species' = 'speciesEN',
-                       'Date Detected' = 'first_date',
-                       'View on Motus.org' = 'map_link_href'),
+datatable(summary[, c('Species', 'First date detected', 'View on Motus.org')],
           escape = F)
           
 ```
@@ -164,10 +190,10 @@ This map shows all the same animals as the table above, but displays all the add
 taghits_file <- paste0(outdir, 'taghits_tracks/', site, '_taghits_tracks.csv')
 
 # function to get the most recent taghits_tracks 
-get_taghits_tracks <- function(goodruns_summary){
+get_taghits_tracks <- function(summary){
   # construct the query to get the data from det_taghits_tracks
   query <- paste0('select * from det_taghits_tracks where tagDeployId in (',
-                  toString(goodruns_summary$tagDeployID), ')')  
+                  toString(summary$tagDeployID), ')')  
   
   # try to connect to the database
   tryCatch({
@@ -188,11 +214,11 @@ get_taghits_tracks <- function(goodruns_summary){
 # get the most recent taghits_tracks file if on the network 
 # if not on the network, it will make getting the most recent data from the remote desktop easier
 if (tracks_from_db == T){
-  get_taghits_tracks(goodruns_summary)
+  get_taghits_tracks(summary)
 }
 
 # create the map
-map <- map_tracks(goodruns_summary, taghits_file)
+map <- map_tracks(summary, taghits_file)
 
 ```
 
