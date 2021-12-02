@@ -37,12 +37,6 @@ source(r'(C:\GitHub\motus\helper_functions.R)')
 
 ```{r get detection summary, message = F, results = F, warning = F}
 
-# create list of all deployments with this site name and project
-# NOTE: the exact name is needed
-site_deploys <-
-  all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
-                           grepl(proj, recvProjectID))
-
 # if on BSC network, get the most recent list of receivers
 # from the DB; otherwise grab the most recent local file
 # TODO make function that queries the db and saves a local file
@@ -52,6 +46,13 @@ if (bsc_network == T) {
     DBI::dbGetQuery(con, 'select * from vwBase_receivers_deployments')
 } else
   all_recv_deps <- all_deps() # grab the most recent local file
+
+
+# create list of all deployments with this site name and project
+# NOTE: the exact name is needed
+site_deploys <-
+  all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
+                           grepl(proj, recvProjectID))
 
 
 # get unique tag_deployID's from det_taghits_daily if specified
@@ -77,9 +78,11 @@ if (data == 1) {
     summarise(
       'Species' = english_name,
       'First date detected' = min(date),
-      'View on Motus.org' = paste0('<a href="',
+      'map_link' = paste0(
         'https://motus.org/data/track?tagDeploymentId=',
-        tag_deploy_id,
+        tag_deploy_id),
+      'View on Motus.org' = paste0('<a href="',
+        map_link,
         '" target="_blank">View on Motus.org</a>'
       )
     ) %>%
@@ -222,7 +225,7 @@ map <- map_tracks(summary, taghits_file)
 
 ```
 
-```{r, fig.keep=T, results=T, message=T, eval=T, fig.show=T}
+```{r, fig.keep=T, results=T, message=T, eval=T, fig.show=T, warning=F}
 # view the map
 map
 
