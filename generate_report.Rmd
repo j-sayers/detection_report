@@ -187,7 +187,7 @@ This map shows all the same animals as the table above, but displays all the add
 
 <br>
 
-```{r summary map, echo=F}
+```{r get taghits_tracks, echo=F}
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
 taghits_file <- paste0(outdir, 'taghits_tracks/', site, '_taghits_tracks.csv')
@@ -220,12 +220,13 @@ if (tracks_from_db == T){
   get_taghits_tracks(summary)
 }
 
-# create the map
-map <- map_tracks(summary, taghits_file)
 
 ```
 
-```{r, fig.keep=T, results=T, message=T, eval=T, fig.show=T, warning=F}
+```{r generate and view the map, fig.keep=T, results=T, message=T, eval=T, fig.show=T, warning=F}
+# create the map
+map <- map_tracks(summary, taghits_file)
+
 # view the map
 map
 

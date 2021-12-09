@@ -17,28 +17,34 @@ sites <- c(
   # 'Aldverville Black Oak Savanna',
   # 'Arkey\'s Acres',
   # 'Auzins',
+  # 'Aylmer',
   # 'Binbrook Conservation Area',
   # 'Bolin_Port_Burwell',
   # 'Cabot_Head',
   # 'Conestogo',
+  'Darlington OPG',
+  'Des Joachims OPG',
   # 'Earl_Rowe_PP',
   # 'Gerdau'
   # 'Hagersville_Landfill',
   # 'Hentz',
   # 'Hullet Provincial Wildlife Area',
   # 'Koffler',
-  # 'MagnetZawan',
+  'Lennox OPG',
+  # 'Magnetawan',
   # 'Merlin',
   # 'Mosaic Port Maitland',
-  # 'Nanticoke',
+  'Nanticoke',
   # 'Peers',
+  'Pickering OPG',
   # 'Point Farms Provincial Park',
   # 'Prince Edward Point Bird Observatory',
   # 'Old Cut'
   # 'Camp Onondaga - THFC'
   # 'Rathwell',
-  # 'Russell Reid PS',
+  # 'Russell Reid PS'
   # 'Ruthven',
+  'Saunders'
   # 'Short Hills Provincial Park',
   # 'SpruceHaven',
   # 'Wolfe',
@@ -47,17 +53,12 @@ sites <- c(
   # 'Wilmot Creek',
   # 'Zorad',
   # 'Werden'
-  'Josie\'s Farm',
-  'Franks Tower',
-  'Knowles Tower',
-  'McQueens'
 )
-
 
 
 # must define a project since the same site name 
 # may exist in multiple projects
-proj <- 145
+proj <- 1
 
 
 
@@ -109,7 +110,6 @@ to_remove <- c(
   ,24749 # https://motus.org/data/track?tagDeploymentId=24749
   ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
   )
-
 
 
 for (site in sites){
