@@ -16,30 +16,35 @@
 sites <- c(
   # 'Aldverville Black Oak Savanna',
   # 'Arkey\'s Acres',
-  # 'Auzins',
-  'Aylmer',
+  'Auzins'
+  # 'Aylmer',
   # 'Binbrook Conservation Area',
   # 'Bolin_Port_Burwell',
   # 'Cabot_Head',
   # 'Conestogo',
+  # 'Darlington OPG',
+  # 'Des Joachims OPG',
   # 'Earl_Rowe_PP',
   # 'Gerdau'
   # 'Hagersville_Landfill',
   # 'Hentz',
   # 'Hullet Provincial Wildlife Area',
   # 'Koffler',
+  # 'Lennox OPG',
   # 'Magnetawan',
   # 'Merlin',
   # 'Mosaic Port Maitland',
   # 'Nanticoke',
-  # 'Peers'
+  # 'Peers',
+  # 'Pickering OPG',
   # 'Point Farms Provincial Park',
   # 'Prince Edward Point Bird Observatory',
   # 'Old Cut'
   # 'Camp Onondaga - THFC'
   # 'Rathwell',
-  'Russell Reid PS'
+  # 'Russell Reid PS'
   # 'Ruthven',
+  # 'Saunders',
   # 'Short Hills Provincial Park',
   # 'SpruceHaven',
   # 'Wolfe',
@@ -51,7 +56,6 @@ sites <- c(
 )
 
 
-
 # must define a project since the same site name 
 # may exist in multiple projects
 proj <- 1
@@ -60,21 +64,15 @@ proj <- 1
 
 # Are you on the BSC network? If so, then the database
 # will be queried directly
-bsc_network <- F
+bsc_network <- T
 
 
 
 # specify how to get the site data
-# 1) download data via the R package
-# 2) query det_taghits_daily based on sensor_deploy_id
+# 1) query det_taghits_daily based on sensor_deploy_id
+# 2) download data via the R package
 # 3) use the most recent allruns.RDS file for this site (if one exists)
-data <- 2
-
-
-
-# specify whether to download new site data (TRUE)
-# or use the most recent local "allruns" RDS file (FALSE)
-download_new_data <- T
+data <- 1
 
 
 
@@ -111,13 +109,13 @@ to_remove <- c(
   ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
   ,24749 # https://motus.org/data/track?tagDeploymentId=24749
   ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
+  ,32117 # https://motus.org/data/track?tagDeploymentId=32117
   ,24747 # https://motus.org/data/track?tagDeploymentId=24747
   )
 
 
-
 for (site in sites){
-  rmarkdown::render(r'(C:\GitHub\station_report\generate_station_report.Rmd)',
+  rmarkdown::render(r'(C:\GitHub\station_report\generate_report.Rmd)',
                     output_file = paste0(outdir,
                                          site,
                                          '_',
