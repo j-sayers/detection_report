@@ -32,6 +32,9 @@ library(DT)
 
 # load helper functions
 source(r'(C:\GitHub\motus\helper_functions.R)')
+
+# outdir <-remoted(outdir)
+
 ```
 
 
@@ -72,9 +75,10 @@ if (data == 1) {
       ')'
           )
   daily_summary <- DBI::dbGetQuery(con, query)
+  
   summary <- daily_summary %>%
     filter(test != 1) %>%
-    group_by(tagDeployID = tag_deploy_id) %>%
+    group_by('tagDeployID' = tag_deploy_id) %>%
     summarise(
       'Species' = english_name,
       'First date detected' = min(date),
@@ -86,6 +90,7 @@ if (data == 1) {
         '" target="_blank">View on Motus.org</a>'
       )
     ) %>%
+    slice_max(order_by = 'First date detected') %>% 
     arrange(desc('First date detected'))
 } else {
   if (data == 2) {
@@ -110,12 +115,14 @@ if (data == 1) {
   goodruns <- allruns %>%
     filter(runLen > 3,
            !is.na(speciesEN),
+           motusFilter != 0,
            tagDeployTest == 0 | is.na(tagDeployTest))
-  
   summary <- summarize_runs(goodruns) %>%
     mutate(
+      'Species' = speciesEN,
       'First date detected' = format(first_date, '%Y-%m-%d'),
-      'View on Motus.org' = paste0('<a href="',
+      'View on Motus.org' = paste0(
+        '<a href="',
         map_link,
         '" target="_blank">View on Motus.org</a>'
       )
@@ -187,7 +194,7 @@ This map shows all the same animals as the table above, but displays all the add
 
 <br>
 
-```{r get taghits_tracks, echo=F}
+```{r get taghits_tracks, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F}
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
 taghits_file <- paste0(outdir, 'taghits_tracks/', site, '_taghits_tracks.csv')
@@ -223,7 +230,7 @@ if (tracks_from_db == T){
 
 ```
 
-```{r generate and view the map, fig.keep=T, results=T, message=T, eval=T, fig.show=T, warning=F}
+```{r generate and view the map, fig.keep=T, results=T, message=F, eval=T, fig.show=T, warning=F}
 # create the map
 map <- map_tracks(summary, taghits_file)
 
