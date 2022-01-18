@@ -110,6 +110,7 @@ to_remove <- c(
   ,24749 # https://motus.org/data/track?tagDeploymentId=24749
   ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
   ,32117 # https://motus.org/data/track?tagDeploymentId=32117
+  ,24747 # https://motus.org/data/track?tagDeploymentId=24747
   )
 
 
