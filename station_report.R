@@ -115,7 +115,7 @@ to_remove <- c(
 
 
 for (site in sites){
-  rmarkdown::render(r'(C:\GitHub\station_report\generate_report.Rmd)',
+  rmarkdown::render(r'(C:\GitHub\station_report\generate_station_report.Rmd)',
                     output_file = paste0(outdir,
                                          site,
                                          '_',

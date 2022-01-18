@@ -33,7 +33,7 @@ library(DT)
 # load helper functions
 source(r'(C:\GitHub\motus\helper_functions.R)')
 
-# outdir <-remoted(outdir)
+outdir <-remoted(outdir)
 
 ```
 
