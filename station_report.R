@@ -61,7 +61,7 @@ sites <- c(
 # 1) query det_taghits_daily based on sensor_deploy_id
 # 2) download data via the R package
 # 3) use the most recent allruns.RDS file for this site (if one exists)
-data <- 1
+data <- 2
 
 
 
@@ -117,7 +117,7 @@ to_remove <- c(
 
 
 for (site in sites){
-  rmarkdown::render(r'(C:\GitHub\station_report\generate_station_report.Rmd)',
+  rmarkdown::render('C:/GitHub/station_report/generate_station_report.Rmd',
                     output_file = paste0(outdir,
                                          site,
                                          '_',

@@ -31,7 +31,7 @@ library(data.table)
 library(DT)
 
 # load helper functions
-source(r'(C:\GitHub\motus\helper_functions.R)')
+source('C:/GitHub/motus/helper_functions.R')
 
 outdir <-remoted(outdir)
 
@@ -116,6 +116,7 @@ if (data == 1) {
     filter(runLen > 3,
            !is.na(speciesEN),
            motusFilter != 0,
+           !is.na(ambigID),
            tagDeployTest == 0 | is.na(tagDeployTest))
   summary <- summarize_runs(goodruns) %>%
     mutate(
