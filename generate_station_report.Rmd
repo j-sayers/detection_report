@@ -31,7 +31,7 @@ library(data.table)
 library(DT)
 
 # load helper functions
-source('C:/GitHub/motus/helper_functions.R')
+source('C:/GitHub/motus_scripts/helper_functions.R')
 
 outdir <-remoted(outdir)
 
@@ -42,16 +42,10 @@ outdir <-remoted(outdir)
 
 # if on BSC network, get the most recent list of receivers
 # from the DB; otherwise grab the most recent local file
-# TODO make function that queries the db and saves a local file
-if (bsc_network == T) {
-  con <- connect_to_db()
-  all_recv_deps <-
-    DBI::dbGetQuery(con, 'select * from vwBase_receivers_deployments')
-} else
-  all_recv_deps <- all_deps() # grab the most recent local file
+all_recv_deps <- all_recv_deps()
 
 
-# create list of all deployments with this site name and project
+# create list of all deployments with the desired station ID site name and project
 # NOTE: the exact name is needed
 site_deploys <-
   all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),

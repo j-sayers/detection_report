@@ -11,48 +11,9 @@
 
 
 
-# define the site(s) to summarize
-# must use the exact name here
-sites <- c(
-  # 'Aldverville Black Oak Savanna',
-  # 'Arkey\'s Acres',
-  'Auzins'
-  # 'Aylmer',
-  # 'Binbrook Conservation Area',
-  # 'Bolin_Port_Burwell',
-  # 'Cabot_Head',
-  # 'Conestogo',
-  # 'Darlington OPG',
-  # 'Des Joachims OPG',
-  # 'Earl_Rowe_PP',
-  # 'Gerdau'
-  # 'Hagersville_Landfill',
-  # 'Hentz',
-  # 'Hullet Provincial Wildlife Area',
-  # 'Koffler',
-  # 'Lennox OPG',
-  # 'Magnetawan',
-  # 'Merlin',
-  # 'Mosaic Port Maitland',
-  # 'Nanticoke',
-  # 'Peers',
-  # 'Pickering OPG',
-  # 'Point Farms Provincial Park',
-  # 'Prince Edward Point Bird Observatory',
-  # 'Old Cut'
-  # 'Camp Onondaga - THFC'
-  # 'Rathwell',
-  # 'Russell Reid PS'
-  # 'Ruthven',
-  # 'Saunders',
-  # 'Short Hills Provincial Park',
-  # 'SpruceHaven',
-  # 'Wolfe',
-  # 'Tommy Thompson Park',
-  # 'Turkey Point',
-  # 'Wilmot Creek',
-  # 'Zorad',
-  # 'Werden'
+## Define the station(s) to summary
+stations <- c(
+  11568 # Project 247 -- Red Tail 
 )
 
 
@@ -68,13 +29,6 @@ data <- 2
 # must define a project since the same site name 
 # may exist in multiple projects
 proj <- 1
-
-
-
-# Are you on the BSC network? If so, then the database
-# will be queried directly
-bsc_network <- T
-
 
 
 
@@ -116,10 +70,10 @@ to_remove <- c(
   )
 
 
-for (site in sites){
+for (station in stations){
   rmarkdown::render('C:/GitHub/station_report/generate_station_report.Rmd',
                     output_file = paste0(outdir,
-                                         site,
+                                         station,
                                          '_',
                                          Sys.Date(),
                                          '.html'))
