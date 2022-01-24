@@ -12,7 +12,7 @@ editor_options:
 
 ################################################################################
 ###
-###  This markdown report must be rendered from within from STATION_SUMMARY.R
+###  This markdown report must be rendered from within from STATION_REPORT.R
 ###  as that is where some of the initial parameters are defined
 ###
 ################################################################################
@@ -42,30 +42,25 @@ outdir <-remoted(outdir)
 
 # if on BSC network, get the most recent list of receivers
 # from the DB; otherwise grab the most recent local file
-all_recv_deps <- all_recv_deps()
+# all_recv_deps <- get_all_recv_deps()
 
 
 # create list of all deployments with the desired station ID site name and project
-# NOTE: the exact name is needed
-site_deploys <-
-  all_recv_deps %>% filter(grepl(paste0('^', site, '$'), siteName),
-                           grepl(proj, recvProjectID))
+site_deploys <- all_recv_deps %>%
+  filter(station_id == station)
 
 
 # get unique tag_deployID's from det_taghits_daily if specified
 if (data == 1) {
-  if (bsc_network == F)
-    stop('Not on BSC network')
-  # TODO should also just test to see if the connection can be established before moving on
 
   query <-
     paste0(
-            'select tag_deploy_id, [date], n_hits, a.tag_id, english_name, test
+      'select tag_deploy_id, [date], n_hits, a.tag_id, english_name, test
       from det_taghits_daily a
       left join tags_deployments b on b.id = a.tag_deploy_id
       left join lk_species c on c.species_id = b.species_id
       where sensor_deploy_id in (',
-      toString(unique(site_deploys$recvDeployID)),
+      toString(unique(site_deploys$recv_deploy_id)),
       ')'
           )
   daily_summary <- DBI::dbGetQuery(con, query)
@@ -85,7 +80,8 @@ if (data == 1) {
       )
     ) %>%
     slice_max(order_by = 'First date detected') %>% 
-    arrange(desc('First date detected'))
+    ungroup() %>% 
+    arrange(desc(`First date detected`))
 } else {
   if (data == 2) {
     motus_login()
@@ -105,7 +101,6 @@ if (data == 1) {
   
   # remove runs shorter than 4 as well as Test tags
   # and any tag without a species
-  # TODO: should filter out those with motusFilter == 0 too
   goodruns <- allruns %>%
     filter(runLen > 3,
            !is.na(speciesEN),
@@ -122,7 +117,7 @@ if (data == 1) {
         '" target="_blank">View on Motus.org</a>'
       )
     ) %>%
-    arrange(desc('First date detected'))
+    arrange(desc(`First date detected`))
   
 }
 
@@ -136,10 +131,10 @@ summary <- summary %>%
 ```{r dates and location of station deployments}
 
 # get the first deployment for this site
-first_deploy <- site_deploys[site_deploys$tsStart ==  min(site_deploys$tsStart), ]
+first_deploy <- site_deploys[site_deploys$dt_start ==  min(site_deploys$dt_start), ]
 
-lat <- first_deploy$latitude
-lon <- first_deploy$longitude
+lat <- first_deploy$station_lat
+lon <- first_deploy$station_lon
 latlon <- paste0('http://www.openstreetmap.org/?mlat=', lat, '&mlon=', lon, '&zoom=7')
 
 ```
@@ -150,11 +145,11 @@ latlon <- paste0('http://www.openstreetmap.org/?mlat=', lat, '&mlon=', lon, '&zo
 ::: {style="display: flex;"}
 <div>
 
-### Station: `r site`
+### Station: `r first_deploy[station_name]`
 
 Location: <a href= `r latlon`>`r lat`, `r lon`</a>
 
-Start Date: `r format(as.Date(first_deploy$dtStart), '%B %d, %Y')`
+Start Date: `r format(as.Date(first_deploy$dt_start), '%B %d, %Y')`
 
 Report Date: `r format(Sys.Date(), '%B %d, %Y')`
 

@@ -26,11 +26,6 @@ data <- 2
 
 
 
-# must define a project since the same site name 
-# may exist in multiple projects
-proj <- 1
-
-
 
 # specify whether to try to get taghits_tracks 
 # directly from the db (TRUE)
@@ -40,10 +35,6 @@ proj <- 1
 # obtained from the remote server
 tracks_from_db <- T
 
-
-
-# define output directory
-outdir <- 'D:/OneDrive/R/StationSummary/'
 
 
 
@@ -70,12 +61,23 @@ to_remove <- c(
   )
 
 
-for (station in stations){
-  rmarkdown::render('C:/GitHub/station_report/generate_station_report.Rmd',
-                    output_file = paste0(outdir,
-                                         station,
-                                         '_',
-                                         Sys.Date(),
-                                         '.html'))
+# connect to db to get station names to use in file names
+source('C:/GitHub/motus_scripts/helper_functions.R')
+all_recv_deps <- get_all_recv_deps()
+
+# define output directory
+outdir <- remoted('D:/OneDrive/R/StationSummary/')
+
+
+for (station in stations) {
+  name = all_recv_deps[station_id == station, station_name][1]
+  rmarkdown::render(
+    'C:/GitHub/station_report/generate_station_report.Rmd',
+    output_file = paste0(outdir,
+                         station,
+                         '_',
+                         Sys.Date(),
+                         '.html')
+  )
 }
 
