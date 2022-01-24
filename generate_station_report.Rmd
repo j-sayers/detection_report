@@ -55,15 +55,30 @@ if (data == 1) {
 
   query <-
     paste0(
-      'select tag_deploy_id, [date], n_hits, a.tag_id, english_name, test
+      'select 
+        tag_deploy_id, 
+        a.tag_id, 
+        sensor_deploy_id,
+        d.period as burst_interval,
+        mfg_id,
+        [date],
+        project_id,
+        project_name,
+        n_hits, 
+        english_name, 
+        test
       from det_taghits_daily a
-      left join tags_deployments b on b.id = a.tag_deploy_id
-      left join lk_species c on c.species_id = b.species_id
+        left join tags_deployments b on b.id = a.tag_deploy_id
+        left join lk_species c on c.species_id = b.species_id
+        left join tags d on d.id = b.tag_id
+        left join projects e on e.id = d.project_id
       where sensor_deploy_id in (',
       toString(unique(site_deploys$recv_deploy_id)),
       ')'
-          )
-  daily_summary <- DBI::dbGetQuery(con, query)
+    )
+  
+  db <- connect_to_db()
+  daily_summary <- DBI::dbGetQuery(db, query)
   
   summary <- daily_summary %>%
     filter(test != 1) %>%
@@ -71,6 +86,10 @@ if (data == 1) {
     summarise(
       'Species' = english_name,
       'First date detected' = min(date),
+      mfg_id,
+      burst_interval,
+      project_id,
+      project_name,
       'map_link' = paste0(
         'https://motus.org/data/track?tagDeploymentId=',
         tag_deploy_id),
@@ -145,7 +164,7 @@ latlon <- paste0('http://www.openstreetmap.org/?mlat=', lat, '&mlon=', lon, '&zo
 ::: {style="display: flex;"}
 <div>
 
-### Station: `r first_deploy[station_name]`
+### Station: `r name`
 
 Location: <a href= `r latlon`>`r lat`, `r lon`</a>
 
@@ -187,7 +206,7 @@ This map shows all the same animals as the table above, but displays all the add
 ```{r get taghits_tracks, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F}
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
-taghits_file <- paste0(outdir, 'taghits_tracks/', site, '_taghits_tracks.csv')
+taghits_file <- paste0(outdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
 
 # function to get the most recent taghits_tracks 
 get_taghits_tracks <- function(summary){

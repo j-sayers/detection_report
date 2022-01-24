@@ -13,7 +13,8 @@
 
 ## Define the station(s) to summary
 stations <- c(
-  11568 # Project 247 -- Red Tail 
+  # 11568, # Project 247 -- Red Tail 
+  10067  # Project 10 -- CFI
 )
 
 
@@ -22,7 +23,7 @@ stations <- c(
 # 1) query det_taghits_daily based on sensor_deploy_id
 # 2) download data via the R package
 # 3) use the most recent allruns.RDS file for this site (if one exists)
-data <- 2
+data <- 1
 
 
 
@@ -74,7 +75,7 @@ for (station in stations) {
   rmarkdown::render(
     'C:/GitHub/station_report/generate_station_report.Rmd',
     output_file = paste0(outdir,
-                         station,
+                         name,
                          '_',
                          Sys.Date(),
                          '.html')
