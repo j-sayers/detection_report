@@ -11,20 +11,32 @@
 
 
 
-## Define the station(s) to summary
+
+# Define what detections to summarize
+# 1) List of stations
+# 2) A project's tags
+# 3) A custom query
+summarize_by <- 1
+
+
+
+# provide a list of station(s) to summarize
 stations <- c(
-  # 11568, # Project 247 -- Red Tail 
-  10067  # Project 10 -- CFI
+  9912 # Walsingham
 )
 
 
 
-# specify how to get the site data
-# 1) query det_taghits_daily based on sensor_deploy_id
-# 2) download data via the R package
-# 3) use the most recent allruns.RDS file for this site (if one exists)
-data <- 1
+# specify a project whose tags to summarize
+projects <- c(
+  417 # Georgian Bay
+) 
 
+
+
+# specify the query to use for custom tags
+# NOTE: should have everything but the where clause commented out
+query_file <- 'C:/GitHub/motus_scripts/sql/scratchy/red knots with flags seen robert mercer.sql'
 
 
 
@@ -64,21 +76,49 @@ to_remove <- c(
 
 # connect to db to get station names to use in file names
 source('C:/GitHub/motus_scripts/helper_functions.R')
-all_recv_deps <- get_all_recv_deps()
 
 # define output directory
 outdir <- remoted('D:/OneDrive/R/StationSummary/')
 
 
-for (station in stations) {
-  name = all_recv_deps[station_id == station, station_name][1]
-  rmarkdown::render(
-    'C:/GitHub/station_report/generate_station_report.Rmd',
-    output_file = paste0(outdir,
-                         name,
-                         '_',
-                         Sys.Date(),
-                         '.html')
-  )
-}
+if (summarize_by == 1) {
+  
+  all_recv_deps <- get_all_recv_deps()
+  
+  for (station in stations) {
+    name = all_recv_deps[station_id == station, station_name][1]
+    rmarkdown::render(
+      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      output_file = paste0(outdir,
+                           name,
+                           '_',
+                           Sys.Date(),
+                           '.html')
+    )
+  }
+  
+} else if (summarize_by == 2) {
+  for (project in projects) {
+    name = paste0('Project_', project)
+    rmarkdown::render(
+      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      output_file = paste0(outdir,
+                           name,
+                           '_',
+                           Sys.Date(),
+                           '.html')
+    )
+  }
+  
+} else if (summarize_by == 3) {
+    rmarkdown::render(
+      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      output_file = paste0(outdir,
+                           'Report',
+                           '_',
+                           Sys.Date(),
+                           '.html')
+    )
+  }
+
 
