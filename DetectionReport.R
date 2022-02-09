@@ -22,7 +22,8 @@ summarize_by <- 1
 
 # provide a list of station(s) to summarize
 stations <- c(
-  9912 # Walsingham
+  # 9912, # Walsingham
+  11426 # Lemoine Point
 )
 
 
