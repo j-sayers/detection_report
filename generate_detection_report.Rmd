@@ -105,7 +105,7 @@ summarise(
     '" target="_blank">View on Motus.org</a>'
   )
 ) %>%
-slice_max(order_by = 'First date detected') %>% 
+slice(n = 1) %>% 
 ungroup() %>% 
 arrange(desc(`First date detected`))
 
