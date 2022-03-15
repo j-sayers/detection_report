@@ -7,12 +7,11 @@ editor_options:
   chunk_output_type: inline
 ---
 
-
 ```{r setup, include=FALSE}
 
 ################################################################################
 ###
-###  This markdown report must be rendered from within from STATION_REPORT.R
+###  This markdown report must be rendered from within from DetectionReport.R
 ###  as that is where some of the initial parameters are defined
 ###
 ################################################################################
@@ -36,7 +35,6 @@ source('C:/GitHub/motus_scripts/helper_functions.R')
 outdir <-remoted(outdir)
 
 ```
-
 
 ```{r r get detection summary, message = F, results = F, warning = F}
 
@@ -117,6 +115,7 @@ summary <- summary %>%
 
 
 ```
+
 ```{r dates and titles}
 
 if (summarize_by == 1){
@@ -157,8 +156,6 @@ if (summarize_by == 1){
 
 ```
 
-
-
 <br>
 
 ::: {style="display: flex;"}
@@ -175,8 +172,6 @@ Number of species detected: `r length(unique(summary$Species))`
 Number of individuals detected: `r nrow(summary)`
 
 `r line6`
-
-
 
 </div>
 
