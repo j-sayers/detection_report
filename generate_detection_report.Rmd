@@ -151,9 +151,6 @@ if (summarize_by == 1){
   line6 <- ''
   
 }
-
-
-
 ```
 
 <br>
@@ -191,7 +188,6 @@ The table below summarizes all tagged animals that have been detected at this st
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
 datatable(summary[, c('Species', 'First date detected', 'View on Motus.org')],
           escape = F)
-          
 ```
 
 <br>
@@ -232,8 +228,6 @@ get_taghits_tracks <- function(summary){
 if (tracks_from_db == T){
   get_taghits_tracks(summary)
 }
-
-
 ```
 
 ```{r generate and view the map, fig.keep=T, results=T, message=F, eval=T, fig.show=T, warning=F}
@@ -242,7 +236,6 @@ map <- map_tracks(summary, taghits_file)
 
 # view the map
 map
-
 ```
 
 <br> <br>
