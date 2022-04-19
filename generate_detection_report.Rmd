@@ -173,7 +173,7 @@ Number of individuals detected: `r nrow(summary)`
 </div>
 
 ::: {style="margin-left: auto"}
-![](C:/GitHub/station_report/logo.png)
+![](C:/GitHub/detection_report/logo.png)
 :::
 :::
 

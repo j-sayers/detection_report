@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 1
+summarize_by <- 2
 
 
 
@@ -32,8 +32,8 @@ stations <- c(
 
 # specify a project whose tags to summarize
 projects <- c(
-  # 417 # Georgian Bay
-  116 # Migration in Song Sparrows
+  417 # Georgian Bay
+  # 116 # Migration in Song Sparrows
 ) 
 
 
@@ -92,7 +92,7 @@ if (summarize_by == 1) {
   for (station in stations) {
     name = all_recv_deps[station_id == station, station_name][1]
     rmarkdown::render(
-      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      'C:/GitHub/detection_report/generate_detection_report.Rmd',
       output_file = paste0(outdir,
                            name,
                            '_',
@@ -105,7 +105,7 @@ if (summarize_by == 1) {
   for (project in projects) {
     name = paste0('Project_', project)
     rmarkdown::render(
-      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      'C:/GitHub/detection_report/generate_detection_report.Rmd',
       output_file = paste0(outdir,
                            name,
                            '_',
@@ -116,7 +116,7 @@ if (summarize_by == 1) {
   
 } else if (summarize_by == 3) {
     rmarkdown::render(
-      'C:/GitHub/station_report/generate_detection_report.Rmd',
+      'C:/GitHub/detection_report/generate_detection_report.Rmd',
       output_file = paste0(outdir,
                            'Report',
                            '_',
