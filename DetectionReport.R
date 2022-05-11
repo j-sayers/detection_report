@@ -16,16 +16,20 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 2
+summarize_by <- 1
 
 
 
 # provide a list of station(s) to summarize
 stations <- c(
-  11209 # Aylmer
+  # 11209, # Aylmer
   # 9912, # Walsingham
   # 11426, # Lemoine Point
   # 9913 # West Port Bruce
+  # 11578, # Russel Reid
+  # 10132, # Maple Leaf
+  # 11356 # Glass
+  11512 # Otter Lake
 )
 
 
