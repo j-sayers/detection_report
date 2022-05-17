@@ -90,21 +90,21 @@ daily_summary <- DBI::dbGetQuery(db, query)
 summary <- daily_summary %>%
 filter(test != 1) %>%
 group_by('tagDeployID' = tag_deploy_id) %>%
-summarise(
-  'Species' = english_name,
-  'First date detected' = min(date),
-  mfg_id,
-  burst_interval,
-  project_id,
-  project_name,
-  'map_link' = paste0(
-    'https://motus.org/data/track?tagDeploymentId=',
-    tag_deploy_id),
-  'View on Motus.org' = paste0('<a href="',
-    map_link,
-    '" target="_blank">View on Motus.org</a>'
-  )
-) %>%
+# summarise(
+#   'Species' = english_name,
+#   'First date detected' = min(date),
+#   mfg_id,
+#   burst_interval,
+#   project_id,
+#   project_name,
+#   'map_link' = paste0(
+#     'https://motus.org/data/track?tagDeploymentId=',
+#     tag_deploy_id),
+#   'View on Motus.org' = paste0('<a href="',
+#     map_link,
+#     '" target="_blank">View on Motus.org</a>'
+#   )
+# ) %>%
 slice(n = 1) %>% 
 ungroup() %>% 
 arrange(desc(`First date detected`))
