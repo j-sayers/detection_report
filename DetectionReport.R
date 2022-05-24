@@ -27,9 +27,10 @@ stations <- c(
   # 11426, # Lemoine Point
   # 9913 # West Port Bruce
   # 11578, # Russel Reid
-  10132 # Maple Leaf
+  # 10132 # Maple Leaf
   # 11356 # Glass
   # 11512 # Otter Lake
+  11532 # Pickering
 )
 
 
