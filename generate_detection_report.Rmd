@@ -58,7 +58,7 @@ if (summarize_by == 1){
 # summarize by custom list of tags
 } else if (summarize_by == 3){
   
-  query_condition <- readr::read_file(query_file)
+  query_condition <- q
 }
   
 
@@ -201,6 +201,7 @@ This map shows all the same animals as the table above, but displays all the add
 # don't pass this in if on the HQ server and can download this directly from the db
 taghits_file <- paste0(outdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
 
+
 # function to get the most recent taghits_tracks 
 get_taghits_tracks <- function(summary){
   # construct the query to get the data from det_taghits_tracks
@@ -225,9 +226,13 @@ get_taghits_tracks <- function(summary){
 
 # get the most recent taghits_tracks file if on the network 
 # if not on the network, it will make getting the most recent data from the remote desktop easier
-if (tracks_from_db == T){
-  get_taghits_tracks(summary)
-}
+# 
+
+if (toString(summary$tagDeployID) != '') {
+      if (tracks_from_db == T){
+        get_taghits_tracks(summary)
+  }
+} else stop('There are either no deployments or no tags')
 ```
 
 ```{r generate and view the map, fig.keep=T, results=T, message=F, eval=T, fig.show=T, warning=F}

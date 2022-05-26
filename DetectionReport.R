@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 1
+summarize_by <- 3
 
 
 
@@ -45,7 +45,19 @@ projects <- c(
 
 # specify the query to use for custom tags
 # NOTE: should have everything but the where clause commented out
-query_file <- 'C:/GitHub/motus_scripts/sql/scratchy/red knots with flags seen robert mercer.sql'
+q <- 'where a.tag_id in
+(
+59305,
+59306,
+59307,
+59308,
+59309,
+59310,
+59311,
+59312,
+59313,
+59314
+)'
 
 
 
