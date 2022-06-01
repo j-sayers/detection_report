@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 3
+summarize_by <- 2
 
 
 
@@ -30,15 +30,17 @@ stations <- c(
   # 10132 # Maple Leaf
   # 11356 # Glass
   # 11512 # Otter Lake
-  11532 # Pickering
+  # 11532 # Pickering
+  11534 # Pinery
 )
 
 
 
 # specify a project whose tags to summarize
 projects <- c(
-  417 # Georgian Bay
+  # 417 # Georgian Bay
   # 116 # Migration in Song Sparrows
+  213 # MPG Ranch
 ) 
 
 
