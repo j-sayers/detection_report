@@ -30,6 +30,7 @@ stations <- c(
   # 11512 # Otter Lake
   # 11532 # Pickering
   # 11534 # Pinery
+  # 11555 # Prince Edward Point
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce

@@ -104,8 +104,10 @@ summarise(
     map_link,
     '" target="_blank">View on Motus.org</a>'
   )
-) %>%
-slice(n = 1) %>% 
+)%>%
+# slice_max(n = 1, order_by = 'First date detected') %>% 
+  # The above shoudl take teh first of each group but ignores groups
+  # adn only takes one
 ungroup() %>% 
 arrange(desc(`First date detected`))
 
