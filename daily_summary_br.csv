@@ -1,0 +1,102 @@
+"","tag_deploy_id","tag_id","sensor_deploy_id","burst_interval","mfg_id","date","project_id","project_name","n_hits","english_name","test"
+"1",0,0,3051,NA,NA,2017-05-17,NA,NA,16,NA,NA
+"2",7785,18383,3051,14.8952,"218",2016-05-27,57,"SELVA Colombia",5,"Gray-cheeked Thrush",FALSE
+"3",11586,18581,3051,19.8947,"8",2017-09-25,90,"Gerson - Apalachicola Florida",53,"Swainson's Thrush",FALSE
+"4",11586,18581,3051,19.8947,"8",2017-09-26,90,"Gerson - Apalachicola Florida",17,"Swainson's Thrush",FALSE
+"5",6183,19149,3051,10.0952,"384",2016-09-01,68,"Arctic Shorebirds - CWS Yellowknife",10,"White-rumped Sandpiper",FALSE
+"6",6593,19531,3051,10.0952,"498",2016-09-01,66,"EBM_Coats (#66)",4,"White-rumped Sandpiper",FALSE
+"7",7876,19763,3051,10.696,"162",2016-06-01,47,"Red Knot Staging and Migration Ecology",11,"Ruddy Turnstone",FALSE
+"8",7935,19823,3051,10.6957,"222",2016-06-04,47,"Red Knot Staging and Migration Ecology",4,"Sanderling",FALSE
+"9",9196,21024,3051,8.8961,"18",2016-09-09,71,"Migration and dispersal of bats at Lake Erie",27,"Silver-haired Bat",FALSE
+"10",10871,21768,3051,10.6957,"94",2016-10-01,49,"Thrush post-breeding ecology in Quebec",20,"Swainson's Thrush",FALSE
+"11",10853,21823,3051,5.2978,"462",2016-10-04,49,"Thrush post-breeding ecology in Quebec",167,"Swainson's Thrush",FALSE
+"12",10853,21823,3051,5.2978,"462",2016-10-08,49,"Thrush post-breeding ecology in Quebec",165,"Swainson's Thrush",FALSE
+"13",14346,22528,3051,14.8948,"344",2017-09-06,37,"Wheeler - Loggerhead Shrike",9,"Loggerhead Shrike",FALSE
+"14",10338,22657,3051,10.0953,"192",2016-09-02,38,"James Bay Shorebirds",51,"Least Sandpiper",FALSE
+"15",10352,22673,3051,10.0951,"208",2016-09-01,38,"James Bay Shorebirds",18,"Semipalmated Sandpiper",FALSE
+"16",10394,22723,3051,10.0952,"258",2016-09-01,38,"James Bay Shorebirds",22,"White-rumped Sandpiper",FALSE
+"17",10407,22745,3051,10.0953,"280",2016-09-01,38,"James Bay Shorebirds",27,"White-rumped Sandpiper",FALSE
+"18",10410,22749,3051,10.0952,"284",2016-09-01,38,"James Bay Shorebirds",31,"White-rumped Sandpiper",FALSE
+"19",10458,22870,3051,5.2978,"274.1",2016-10-22,38,"James Bay Shorebirds",107,"Pectoral Sandpiper",FALSE
+"20",10460,22872,3051,5.2978,"276.1",2016-10-30,38,"James Bay Shorebirds",44,"Pectoral Sandpiper",FALSE
+"21",11601,22983,3051,17.8953,"31",2017-05-29,270,"Selva - Swainson's Thrush - Colombia",27,"Swainson's Thrush",FALSE
+"22",16506,23297,3051,12.6952,"044",2018-05-15,90,"Gerson - Apalachicola Florida",20,"Northern Waterthrush",FALSE
+"23",11447,23544,3051,8.8965,"5",2017-05-18,71,"Migration and dispersal of bats at Lake Erie",7,"Silver-haired Bat",FALSE
+"24",11020,23594,3051,5.2977,"62",2017-05-20,140,"SCDNR Shorebirds",149,"Red Knot",FALSE
+"25",16551,24574,3051,9.6973,"276",2018-05-25,51,"Nol - Wintering Shorebirds",11,"Dunlin (hudsonia)",FALSE
+"26",16555,24580,3051,9.6972,"282",2018-05-22,51,"Nol - Wintering Shorebirds",22,"Dunlin (hudsonia)",FALSE
+"27",11807,24596,3051,10.0954,"492",2017-06-08,103,"NYC Audubon",33,"Semipalmated Sandpiper",FALSE
+"28",14393,24945,3051,10.0951,"393",2017-08-05,92,"Ontario Barn and Cliff Swallows",4,"Cliff Swallow",FALSE
+"29",14544,24967,3051,10.095,"415",2017-08-18,92,"Ontario Barn and Cliff Swallows",111,"Barn Swallow",FALSE
+"30",12055,25079,3051,5.2977,"15",2017-07-08,154,"Ontario Pigeons",23,"Rock Pigeon (Feral Pigeon)",FALSE
+"31",12056,25080,3051,5.2979,"16",2017-05-27,154,"Ontario Pigeons",36,"Rock Pigeon (Feral Pigeon)",FALSE
+"32",13087,25082,3051,5.2978,"18",2017-07-08,154,"Ontario Pigeons",18,"Rock Pigeon (Feral Pigeon)",FALSE
+"33",21103,25115,3051,5.8981,"176",2017-05-29,47,"Red Knot Staging and Migration Ecology",19,"Red Knot",FALSE
+"34",0,25131,3051,NA,NA,2017-06-04,NA,NA,41,NA,NA
+"35",21117,25159,3051,5.8983,"285",2017-06-04,47,"Red Knot Staging and Migration Ecology",38,"Red Knot",FALSE
+"36",12158,25289,3051,7.8979,"430",2017-07-16,63,"Saskatchewan Migratory Shorebirds",5,"Sanderling",FALSE
+"37",12180,25311,3051,7.8978,"452",2017-05-30,63,"Saskatchewan Migratory Shorebirds",35,"Sanderling",FALSE
+"38",12220,25351,3051,7.8978,"407",2017-07-19,63,"Saskatchewan Migratory Shorebirds",11,"Sanderling",FALSE
+"39",12514,25775,3051,19.895,"75",2017-09-07,159,"Local and migration movements of Canada Warbler",38,"Canada Warbler",FALSE
+"40",16270,26040,3051,10.0950002670288,"230",2017-08-18,164,"Tracking post-breeding movements of Purple Martins",102,"Purple Martin",FALSE
+"41",16270,26040,3051,10.0950002670288,"230",2017-08-19,164,"Tracking post-breeding movements of Purple Martins",177,"Purple Martin",FALSE
+"42",16270,26040,3051,10.0950002670288,"230",2017-08-20,164,"Tracking post-breeding movements of Purple Martins",105,"Purple Martin",FALSE
+"43",16270,26040,3051,10.0950002670288,"230",2017-08-21,164,"Tracking post-breeding movements of Purple Martins",6,"Purple Martin",FALSE
+"44",16270,26040,3051,10.0950002670288,"230",2017-08-22,164,"Tracking post-breeding movements of Purple Martins",7,"Purple Martin",FALSE
+"45",16270,26040,3051,10.0950002670288,"230",2017-08-23,164,"Tracking post-breeding movements of Purple Martins",496,"Purple Martin",FALSE
+"46",16270,26040,3051,10.0950002670288,"230",2017-08-24,164,"Tracking post-breeding movements of Purple Martins",693,"Purple Martin",FALSE
+"47",16270,26040,3051,10.0950002670288,"230",2017-08-25,164,"Tracking post-breeding movements of Purple Martins",80,"Purple Martin",FALSE
+"48",14091,26687,3051,10.6950998306274,"40",2017-09-28,71,"Migration and dispersal of bats at Lake Erie",50,"Silver-haired Bat",FALSE
+"49",21260,26944,3051,5.2975001335144,"151.2",2018-05-30,47,"Red Knot Staging and Migration Ecology",39,"Red Knot",FALSE
+"50",21138,26959,3051,4.69700002670288,"292",2018-05-29,47,"Red Knot Staging and Migration Ecology",54,"Red Knot",FALSE
+"51",21139,26960,3051,4.69689989089966,"293",2018-05-29,47,"Red Knot Staging and Migration Ecology",33,"Red Knot",FALSE
+"52",21145,26966,3051,5.89799976348877,"504",2018-05-30,47,"Red Knot Staging and Migration Ecology",16,"Red Knot",FALSE
+"53",14741,27359,3051,5.89809989929199,"93",2018-05-29,47,"Red Knot Staging and Migration Ecology",10,"Red Knot",FALSE
+"54",16668,28414,3051,10.0980997085571,"234",2018-05-02,35,"Powdermill Nature Reserve",20,"White-throated Sparrow",FALSE
+"55",16206,28473,3051,4.69920015335083,"376",2018-05-31,140,"SCDNR Shorebirds",43,"Ruddy Turnstone",FALSE
+"56",19548,28482,3051,4.69990015029907,"335",2018-05-29,140,"SCDNR Shorebirds",11,"Ruddy Turnstone",FALSE
+"57",19358,29282,3051,15.0993003845215,"177",2018-07-26,67,"Nol - Churchill Shorebirds",38,"Whimbrel",FALSE
+"58",17262,29552,3051,4.69910001754761,"494",2019-05-19,194,"Common Nighthawk/Eastern Whip-poor-will",13,"Common Nighthawk",FALSE
+"59",24640,29646,3051,8.89879989624023,"10",2019-08-14,195,"Breeding habitat of Chimney Swift in Québec",22,"Chimney Swift",FALSE
+"60",17695,30228,3051,14.898099899292,"293",2018-10-06,168,"Montreal moult migrant research",9,"Swainson's Thrush",FALSE
+"61",20558,32533,3051,25.0926990509033,"445",2017-09-08,27,"Smith",21,"White-rumped Sandpiper",FALSE
+"62",21164,32770,3051,15.0986,"26",2018-05-29,47,"Red Knot Staging and Migration Ecology",55,"Red Knot",FALSE
+"63",21324,32775,3051,15.0986,"114",2018-05-22,47,"Red Knot Staging and Migration Ecology",37,"Red Knot",FALSE
+"64",20931,32842,3051,14.8985996246338,"267",2019-06-02,174,"Bahia Lomas Shorebirds",24,"Red Knot",FALSE
+"65",21167,32874,3051,15.0986,"5",2018-05-30,47,"Red Knot Staging and Migration Ecology",31,"Red Knot",FALSE
+"66",21171,32878,3051,15.0986,"10",2018-05-29,47,"Red Knot Staging and Migration Ecology",26,"Red Knot",FALSE
+"67",21183,32893,3051,15.0986,"27",2018-05-22,47,"Red Knot Staging and Migration Ecology",5,"Red Knot",FALSE
+"68",21193,32903,3051,15.0986,"37",2018-05-22,47,"Red Knot Staging and Migration Ecology",34,"Red Knot",FALSE
+"69",21270,32908,3051,15.0986,"43",2018-05-29,47,"Red Knot Staging and Migration Ecology",5,"Red Knot",FALSE
+"70",21296,32937,3051,15.0986,"72",2018-05-29,47,"Red Knot Staging and Migration Ecology",60,"Red Knot",FALSE
+"71",21308,32949,3051,15.0986,"84",2018-05-30,47,"Red Knot Staging and Migration Ecology",27,"Red Knot",FALSE
+"72",21309,32950,3051,15.0986,"85",2018-05-25,47,"Red Knot Staging and Migration Ecology",22,"Red Knot",FALSE
+"73",21310,32951,3051,15.0986,"86",2018-05-31,47,"Red Knot Staging and Migration Ecology",10,"Red Knot",FALSE
+"74",21316,32957,3051,15.0986,"92",2018-05-25,47,"Red Knot Staging and Migration Ecology",9,"Red Knot",FALSE
+"75",21319,32972,3051,15.0986,"109",2018-05-30,47,"Red Knot Staging and Migration Ecology",4,"Red Knot",FALSE
+"76",21326,32977,3051,15.0986,"116",2018-05-30,47,"Red Knot Staging and Migration Ecology",9,"Red Knot",FALSE
+"77",21335,32986,3051,15.0986,"125",2018-05-29,47,"Red Knot Staging and Migration Ecology",31,"Ruddy Turnstone",FALSE
+"78",21339,32990,3051,15.0986,"129",2018-05-29,47,"Red Knot Staging and Migration Ecology",32,"Ruddy Turnstone",FALSE
+"79",21347,32997,3051,15.0986,"137",2018-05-30,47,"Red Knot Staging and Migration Ecology",33,"Ruddy Turnstone",FALSE
+"80",21357,33010,3051,15.0986,"150",2018-05-27,47,"Red Knot Staging and Migration Ecology",37,"Ruddy Turnstone",FALSE
+"81",21575,33181,3051,10.7006998062134,"66",2019-05-28,96,"Lefevre - Florida Gulf Coast University",36,"Red Knot",FALSE
+"82",22678,33843,3051,11.2976999282837,"161.1",2019-05-20,35,"Powdermill Nature Reserve",30,"Wood Thrush",FALSE
+"83",21945,33873,3051,8.89780044555664,"78",2019-05-25,140,"SCDNR Shorebirds",31,"Ruddy Turnstone",FALSE
+"84",21947,33875,3051,8.89809989929199,"80",2019-05-24,140,"SCDNR Shorebirds",37,"Ruddy Turnstone",FALSE
+"85",22132,34147,3051,11.2976999282837,"371",2019-05-31,4,"Region 4 USFWS  ",91,"Ruddy Turnstone",FALSE
+"86",22593,34310,3051,11.2979001998901,"166.1",2019-09-29,35,"Powdermill Nature Reserve",51,"Wood Thrush",FALSE
+"87",23515,34523,3051,15.0986003875732,"373",2019-05-26,38,"James Bay Shorebirds",7,"Red Knot",FALSE
+"88",23529,34537,3051,15.1000995635986,"388",2019-05-28,38,"James Bay Shorebirds",21,"Red Knot",FALSE
+"89",22725,34608,3051,7.89970016479492,"78",2019-05-28,47,"Red Knot Staging and Migration Ecology",67,"Red Knot",NA
+"90",25479,34748,3051,7.90010023117065,"24",2019-08-03,67,"Nol - Churchill Shorebirds",12,"Semipalmated Plover",FALSE
+"91",22896,34988,3051,13.100700378418,"119",2019-08-10,153,"Tulane_SESA_NGOM",8,"Semipalmated Sandpiper",FALSE
+"92",36057,35219,3051,21.0988998413086,"12",2021-08-28,37,"Wheeler - Loggerhead Shrike",4,"Loggerhead Shrike",FALSE
+"93",26765,35472,3051,12.6986999511719,"62",2019-08-15,168,"Montreal moult migrant research",11,"Tennessee Warbler",FALSE
+"94",27909,45157,3051,5.29979991912842,"3",2020-06-19,322,"TestTags",803,NA,TRUE
+"95",28209,45435,3051,4.89919996261597,"84",2021-05-17,194,"Common Nighthawk/Eastern Whip-poor-will",37,"Common Nighthawk",FALSE
+"96",28421,45674,3051,9.59869956970215,"440",2020-10-01,78,"Atlantic Canada Shorebirds",89,"White-rumped Sandpiper",FALSE
+"97",28897,46553,3051,3.10030007362366,"68",2021-05-30,195,"Breeding habitat of Chimney Swift in Québec",161,"Chimney Swift",FALSE
+"98",29009,46837,3051,7.09910011291504,"164",2020-05-03,64,"Ohio State University",41,"White-throated Sparrow",FALSE
+"99",31143,49915,3051,19.8966007232666,"348",2021-08-16,57,"SELVA Colombia",17,"Black-billed Cuckoo",FALSE
+"100",32853,53894,3051,6.99959993362427,"426",2021-05-22,314,"Forbes Bio Station Motus Tags",73,"Sora",FALSE
+"101",33501,54793,3051,7.09870004653931,"238",2021-06-10,103,"NYC Audubon",67,"Semipalmated Sandpiper",FALSE

@@ -104,12 +104,9 @@ summarise(
     map_link,
     '" target="_blank">View on Motus.org</a>'
   )
-)%>%
-# slice_max(n = 1, order_by = 'First date detected') %>% 
-  # The above shoudl take teh first of each group but ignores groups
-  # adn only takes one
-ungroup() %>% 
-arrange(desc(`First date detected`))
+) %>%
+arrange(`First date detected`) %>% 
+slice_head() 
 
 # remove any tag_deploy_IDs that have been flagged
 summary <- summary %>%
