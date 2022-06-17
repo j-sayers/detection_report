@@ -25,13 +25,14 @@ stations <- c(
   # 11209, # Aylmer
   # 11240 # Breakwater
   # 10004 # Brighton
+  10180, # Darlington
   # 11426, # Lemoine Point
   # 10132 # Maple Leaf
   # 11356 # Glass
   # 11512 # Otter Lake
-  # 11532 # Pickering
+  11532 # Pickering
   # 11534 # Pinery
-  11555 # Prince Edward Point
+  # 11555 # Prince Edward Point
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
