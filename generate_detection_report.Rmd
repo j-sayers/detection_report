@@ -105,8 +105,8 @@ summarise(
     '" target="_blank">View on Motus.org</a>'
   )
 ) %>%
-arrange(`First date detected`) %>% 
-slice_head() 
+arrange(`First date detected`)%>%
+slice_head()
 
 # remove any tag_deploy_IDs that have been flagged
 summary <- summary %>%

@@ -25,12 +25,12 @@ stations <- c(
   # 11209, # Aylmer
   # 11240 # Breakwater
   # 10004 # Brighton
-  10180, # Darlington
+  10180 # Darlington
   # 11426, # Lemoine Point
   # 10132 # Maple Leaf
   # 11356 # Glass
   # 11512 # Otter Lake
-  11532 # Pickering
+  # 11532 # Pickering
   # 11534 # Pinery
   # 11555 # Prince Edward Point
   # 11578, # Russel Reid
@@ -98,6 +98,8 @@ to_remove <- c(
   ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
   ,32117 # https://motus.org/data/track?tagDeploymentId=32117
   ,24747 # https://motus.org/data/track?tagDeploymentId=24747
+  ,34661 # https://motus.org/data/track?tagDeploymentId=34661
+  ,24936 # https://motus.org/data/tagDeploymentDetections?id=24936
   )
 
 
