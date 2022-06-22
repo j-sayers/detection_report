@@ -88,10 +88,12 @@ db <- connect_to_db()
 daily_summary <- DBI::dbGetQuery(db, query)
 
 summary <- daily_summary %>%
-  filter(test != 1) %>%
+  filter(test == 0 | is.na(test)) %>%
   group_by('tagDeployID' = tag_deploy_id) %>%
   summarise(
-    'Species' = english_name,
+    'Species' = ifelse(!is.na(english_name),
+                       english_name,
+                       '[species not entered]'),
     'First date detected' = min(date),
     mfg_id,
     burst_interval,
