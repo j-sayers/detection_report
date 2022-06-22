@@ -88,29 +88,31 @@ db <- connect_to_db()
 daily_summary <- DBI::dbGetQuery(db, query)
 
 summary <- daily_summary %>%
-filter(test != 1) %>%
-group_by('tagDeployID' = tag_deploy_id) %>%
-summarise(
-  'Species' = english_name,
-  'First date detected' = min(date),
-  mfg_id,
-  burst_interval,
-  project_id,
-  project_name,
-  'map_link' = paste0(
-    'https://motus.org/data/track?tagDeploymentId=',
-    tag_deploy_id),
-  'View on Motus.org' = paste0('<a href="',
-    map_link,
-    '" target="_blank">View on Motus.org</a>'
-  )
-) %>%
-arrange(`First date detected`)%>%
-slice_head()
+  filter(test != 1) %>%
+  group_by('tagDeployID' = tag_deploy_id) %>%
+  summarise(
+    'Species' = english_name,
+    'First date detected' = min(date),
+    mfg_id,
+    burst_interval,
+    project_id,
+    project_name,
+    'map_link' = paste0(
+      'https://motus.org/data/track?tagDeploymentId=',
+      tag_deploy_id),
+    'View on Motus.org' = paste0('<a href="',
+      map_link,
+      '" target="_blank">View on Motus.org</a>'
+    ), .groups = 'keep'
+  ) %>%
+  arrange(`First date detected`) %>%
+  slice_head() %>% 
+  arrange(desc(`First date detected`))
+
 
 # remove any tag_deploy_IDs that have been flagged
 summary <- summary %>%
-  filter(!(tagDeployID %in% to_remove))
+  filter(!(tagDeployID %in% to_remove)) 
 
 
 ```
@@ -185,7 +187,7 @@ The table below summarizes all tagged animals that have been detected at this st
 <br>
 
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
-datatable(summary[, c('Species', 'First date detected', 'View on Motus.org')],
+datatable(arrange(summary[, c('Species', 'First date detected', 'View on Motus.org')]),
           escape = F)
 ```
 

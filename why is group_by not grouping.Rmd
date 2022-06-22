@@ -28,7 +28,7 @@ summary <- function(daily_summary){
       'View on Motus.org' = paste0('<a href="',
                                    map_link,
                                    '" target="_blank">View on Motus.org</a>'
-      )
+      ), .groups = 'keep'
     ) %>%
     arrange(`First date detected`) %>% 
     slice_head() 
@@ -75,3 +75,5 @@ is_grouped_df(ml_summary)
 By why the hell is not a grouped_df?! The input data look (and should be) identical. I'm at a loss.
 
 If either of you have any suggestions I'm all ears!
+
+NOTE: it was the `.groups = 'keep'` argument in `summarize()`
