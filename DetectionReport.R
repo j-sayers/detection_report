@@ -26,8 +26,12 @@ stations <- c(
   # 11240 # Breakwater
   # 10004 # Brighton
   # 10180 # Darlington
+  # 10226 # Hentz
+  12131 # Holiday Beach
   # 11426, # Lemoine Point
-  10132 # Maple Leaf
+  # 10132 # Maple Leaf
+  # 11467 # Merlin
+  # 11512 # Otter Lake
   # 11356 # Glass
   # 10287 # North Gwillimbury Forest
   # 11512 # Otter Lake
