@@ -23,11 +23,12 @@ summarize_by <- 1
 # provide a list of station(s) to summarize
 stations <- c(
   # 11209, # Aylmer
+  11917 # Blackwell
   # 11240 # Breakwater
   # 10004 # Brighton
   # 10180 # Darlington
-  # 10226 # Hentz
-  12131 # Holiday Beach
+  # 10226, # Hentz
+  # 12131, # Holiday Beach
   # 11426, # Lemoine Point
   # 10132 # Maple Leaf
   # 11467 # Merlin
