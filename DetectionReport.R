@@ -23,7 +23,7 @@ summarize_by <- 1
 # provide a list of station(s) to summarize
 stations <- c(
   # 11209, # Aylmer
-  11917 # Blackwell
+  # 11917 # Blackwell
   # 11240 # Breakwater
   # 10004 # Brighton
   # 10180 # Darlington
@@ -42,6 +42,11 @@ stations <- c(
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
+  11533, # Pine River Cheese
+  11310, # Earl_Rowe_PP
+  9822, # Brebeuf Island
+  11724, # Curries
+  11050 # Fingal
 )
 
 
@@ -88,27 +93,27 @@ tracks_from_db <- T
 # this is a hack to remove obvious false positives 
 # prior to having the chance to flag them in the db
 to_remove <- c(
-   28152 # https://motus.org/data/tagDeploymentDetections?id=28152
-  ,10301 # https://motus.org/data/tagDeploymentDetections?id=10301 
-  ,20451 # https://motus.org/data/tagDeploymentDetections?id=20451
-  ,22776 # https://motus.org/data/tagDeployment?id=10273
-  ,24771 # https://motus.org/data/tagDeploymentDetections?id=24771
-  ,24728 # https://motus.org/data/track?tagDeploymentId=24728
-  ,25456 # https://motus.org/data/tagDeploymentDetections?id=25456
-  ,10283 # https://motus.org/data/track?tagDeploymentId=10283
-  ,22643 # https://motus.org/data/track?tagDeploymentId=22643
-  ,22638 # https://motus.org/data/track?tagDeploymentId=22638
-  ,33054 # https://motus.org/data/track?tagDeploymentId=33054      TEMPORARY. 
-  ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
-  ,24749 # https://motus.org/data/track?tagDeploymentId=24749
-  ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
-  ,32117 # https://motus.org/data/track?tagDeploymentId=32117
-  ,24747 # https://motus.org/data/track?tagDeploymentId=24747
-  ,34661 # https://motus.org/data/track?tagDeploymentId=34661
-  ,24936 # https://motus.org/data/tagDeploymentDetections?id=24936
-  ,34038 # https://motus.org/data/track?tagDeploymentId=34038
-  ,28207 # https://motus.org/data/track?tagDeploymentId=28207
-  ,28214 # https://motus.org/data/track?tagDeploymentId=28214
+  #  28152 # https://motus.org/data/tagDeploymentDetections?id=28152
+  # ,10301 # https://motus.org/data/tagDeploymentDetections?id=10301
+  # ,20451 # https://motus.org/data/tagDeploymentDetections?id=20451
+  # ,22776 # https://motus.org/data/tagDeployment?id=10273
+  # ,24771 # https://motus.org/data/tagDeploymentDetections?id=24771
+  # ,24728 # https://motus.org/data/track?tagDeploymentId=24728
+  # ,25456 # https://motus.org/data/tagDeploymentDetections?id=25456
+  # ,10283 # https://motus.org/data/track?tagDeploymentId=10283
+  # ,22643 # https://motus.org/data/track?tagDeploymentId=22643
+  # ,22638 # https://motus.org/data/track?tagDeploymentId=22638
+  # ,33054 # https://motus.org/data/track?tagDeploymentId=33054      TEMPORARY.
+  # ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
+  # ,24749 # https://motus.org/data/track?tagDeploymentId=24749
+  # ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
+  # ,32117 # https://motus.org/data/track?tagDeploymentId=32117
+  # ,24747 # https://motus.org/data/track?tagDeploymentId=24747
+  # ,34661 # https://motus.org/data/track?tagDeploymentId=34661
+  # ,24936 # https://motus.org/data/tagDeploymentDetections?id=24936
+  # ,34038 # https://motus.org/data/track?tagDeploymentId=34038
+  # ,28207 # https://motus.org/data/track?tagDeploymentId=28207
+  # ,28214 # https://motus.org/data/track?tagDeploymentId=28214
   )
 
 
