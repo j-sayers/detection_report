@@ -115,8 +115,12 @@ to_remove <- c(
 # connect to db to get station names to use in file names
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
-# define output directory
-outdir <- remoted('D:/OneDrive/R/StationSummary/')
+
+# directory for taghits file etc
+datadir <- 'C:/users/dethier/OneDrive/R/StationSummary/'
+# define output directory for the reports
+# outdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\Ontario Provincial Parks\)'
+outdir <- datadir
 
 
 if (summarize_by == 1) {
