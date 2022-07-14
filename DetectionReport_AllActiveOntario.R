@@ -10,26 +10,30 @@
 ####################################################################################
 
 
+library(tidyverse)
 
-# load helper functions
+## load helper functions
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
 
 ## directory for deployment summary, etc
 datadir <- 'C:/users/dethier/OneDrive/R/StationSummary/ontario_deployment_summary/'
+
+
 ## define output directory for the reports
 # outdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\automated_reports_ontario\)'
 outdir <- 'C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/'
 
 
 
-# load most recent summary of all Ontario deployments
-# This is generated daily by
+## load most recent summary of all Ontario deployments
+## This is generated daily by
 stations <- max(gtools::mixedsort(
   list.files(datadir,
              pattern = 'ontario_deployment_summary',
              full.names = T)
 )) %>% read.csv() 
+
 
 
 ## filtering only stations that active, in Project 1, or in Ontario
@@ -49,22 +53,35 @@ for (i in 1:nrow(stations)) {
   # Get the name of the station
   name = stations[i, 'station_name']
   # find and delete the most recent report of this station (should just be one)
-  existing_file <- max(g7•tools::mixedsort(list.files(outdir, pattern = name, full.names = T)))
-  
+  existing_file <-
+    max(gtools::mixedsort(list.files(
+      outdir, pattern = name, full.names = T
+    )))
   ## only proceed if:
   ## - There is no such file already in the directory or
   ## - most_recent_date is newer than the date of the existing file
-  
-  
-  if (file.exists(existing_file)){
-    file.remove(existing_file)
+  proceed = F
+  if (!file.exists(existing_file)) {
+    proceed = T
   }
-  rmarkdown::render(
-    'C:/GitHub/detection_report/generate_detection_report.Rmd',
-    output_file = paste0(outdir,
-                         name,
-                         '_',
-                         Sys.Date(),
-                         '.html')
-  )
+  if (file.exists(existing_file)) {
+    existing_date <-
+      stringr::str_extract(existing_file, '[0-9]{4}-[0-9]{2}-[0-9]{2}')
+    new_date <-
+      as.Date(stations[i, "most_recent_batch"])
+    if (new_date > existing_date) {
+      proceed == T
+      file.remove(existing_file)
+    }
+  }
+  if (proceed == T) {
+    rmarkdown::render(
+      'C:/GitHub/detection_report/generate_detection_report.Rmd',
+      output_file = paste0(outdir,
+                           name,
+                           '_',
+                           Sys.Date(),
+                           '.html')
+    )
+  }
 }
