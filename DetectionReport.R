@@ -26,7 +26,7 @@ stations <- c(
   # 11917 # Blackwell
   # 11240 # Breakwater
   # 10004 # Brighton
-  # 10180 # Darlington
+  10180 # Darlington
   # 10226, # Hentz
   # 12131, # Holiday Beach
   # 11426, # Lemoine Point
@@ -42,11 +42,6 @@ stations <- c(
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
-  11533, # Pine River Cheese
-  11310, # Earl_Rowe_PP
-  9822, # Brebeuf Island
-  11724, # Curries
-  11050 # Fingal
 )
 
 
@@ -122,10 +117,11 @@ source('C:/GitHub/motus_scripts/helper_functions.R')
 
 
 # directory for taghits file etc
-datadir <- 'C:/users/dethier/OneDrive/R/StationSummary/'
+rootdir <- 'C:/users/dethier/OneDrive/R/StationSummary/'
 # define output directory for the reports
 # outdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\Ontario Provincial Parks\)'
-outdir <- datadir
+outdir <- rootdir
+datadir <- rootdir
 
 
 if (summarize_by == 1) {

@@ -1,0 +1,364 @@
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Error in config::get("ftpu") : 
+  Config file config.yml not found in current working directory or parent directories
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Error in config::get("ftpu") : 
+  Config file config.yml not found in current working directory or parent directories
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning messages:
+1: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Loading required package: sp
+Loading required package: leaflet
+Loading required package: leaflet.extras
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoce4e02b1d23ee.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpmUKmSs\rmarkdown-stre4e01bd2689e.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Carden LOSH_2022-07-15.html
+Error in paste0(name, ) : argument is missing, with no default
+Calls: paste0 -> paste0
+In addition: Warning messages:
+1: In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
+  no non-missing arguments, returning NA
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+3: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+4: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+5: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning messages:
+1: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+skipping St.Clair NWA
+skipping Magnetawan First Nation
+skipping PresqueIsle
+skipping Bruckner Island
+skipping Pinery_Provincial_Park
+skipping Hunt High
+skipping Ashdad
+skipping GB-Harris
+skipping North Gwillimbury
+skipping Hentz
+skipping Des Joachims OPG
+skipping Harrington
+skipping Rouge Marsh North
+skipping Blackwell
+skipping South_Shore
+skipping Hunt
+skipping Arkey's Acres
+skipping Glass
+skipping Cryderman Tower
+skipping CCIW
+skipping Koffler
+skipping Alderville Black Oak Savanna
+skipping Jarmo's
+skipping Turkey Point
+skipping Cabot_Head
+skipping Peers
+skipping Maple Leaf
+skipping Sandbanks Provincial Park
+skipping Pelee_Island
+skipping Holiday Beach
+skipping Mount Forest
+skipping Clear Creek
+skipping Craigmont Ridge
+skipping Torrance B
+skipping Bear Wetlands North
+skipping Atik-1
+skipping Zorad_2
+skipping Napanee LOSH
+skipping Carden LOSH
+skipping Monocliffs
+skipping Mitchell
+skipping Point Pelee
+skipping Torrance C
+skipping Grimsby Wetland
+skipping Burntpoint
+skipping Split Rock
+skipping Scotch_Bush
+skipping Bright
+skipping Griffith
+skipping Shawanaga First Nation
+skipping Toronto Zoo
+skipping Aylmer
+skipping Hilliardton
+skipping Bob Hunter Park
+skipping Girard
+skipping Rondeau Provincial Park
+skipping Port Severn Wetland2
+skipping Brechin
+skipping West Port Bruce
+skipping Sandy Island
+skipping Wilmot Creek
+skipping Walsingham Super Tower
+skipping Hillman
+skipping New Farm
+skipping GB-Alexander
+skipping GB-Lougheed
+skipping Brighton
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Loading required package: sp
+Loading required package: leaflet
+Loading required package: leaflet.extras
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc108a02f247115.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpuoWdWm\rmarkdown-str108a073cf3b81.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Westfield (Correll)_2022-07-15.html
+rendered Westfield (Correll)
+skipping Old Cut
+skipping Chesley
+skipping Priceville
+skipping Kilgas
+skipping Rouge Marsh South
+skipping Campbellville
+skipping Cambridge_RARE
+skipping Wolfe
+skipping North Bay
+skipping Grundy
+skipping Bluewater
+skipping Point Farms Provincial Park
+skipping Little McCoy
+skipping Shaw Woods
+skipping Otter Lake
+skipping Malone University
+skipping Uphill
+skipping Magnetawan
+skipping Mosaic Port Maitland
+skipping Werden_3
+skipping Sydenham
+skipping Cedar Trail
+skipping Auzins
+skipping Hullet Provincial Wildlife Area
+skipping Camp Onondaga - THFC
+skipping Mallett
+skipping Prince Edward Point Bird Observatory
+skipping GB-Tadenac
+skipping Binbrook Conservation Area
+skipping Gerdau
+skipping Thomson Reserve
+skipping The Tip
+skipping SpruceHaven
+skipping Conestogo
+skipping Bronte Creek Provincial Park
+skipping UWO - SSC
+skipping QUBS Birdhouse
+skipping Friday Harbour
+skipping Bromley
+skipping Bonnechere Caves2
+skipping Moosonee
+skipping Crysler Park Marina
+skipping Forks_of_the_Credit
+skipping Brock University
+skipping Luther_Marsh
+skipping Guelph_Lake_CA
+skipping Lemoine Point C.A.
+skipping Old Cut Dyke
+skipping Lennox OPG
+skipping Tommy Thompson Park2
+skipping Stewartville
+skipping Meaford
+skipping Marthaville_CA
+skipping Langton
+skipping Pickering OPG
+skipping Ruthven
+skipping Eganville
+skipping High Park
+skipping BSC HQ
+skipping Darlington OPG
+skipping Sharps Hill
+skipping Russell Reid PS
+skipping Hagersville_Landfill
+skipping Nanticoke
+skipping Killbear
+skipping Perrault
+skipping Saunders
+skipping GB-Go Home
+skipping Bruce Peninsula
+skipping Merlin
+skipping Flamborough_Quarry
+skipping Wasaga
+skipping Breakwater
+Warning messages:
+1: In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
+  no non-missing arguments, returning NA
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+3: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+4: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+5: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'

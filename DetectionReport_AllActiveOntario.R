@@ -9,6 +9,14 @@
 #
 ####################################################################################
 
+## wd needs to be explicitly set for the scheduled task
+setwd('C:/GitHub/detection_report')
+
+## this is only a placeholder since generate_detection_report wants it
+summarize_by <- 1
+to_remove <- c()
+tracks_from_db <- T
+
 
 library(tidyverse)
 
@@ -16,14 +24,21 @@ library(tidyverse)
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
 
-## directory for deployment summary, etc
-datadir <- 'C:/users/dethier/OneDrive/R/StationSummary/ontario_deployment_summary/'
+## define directories
+# rootdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\
+rootdir <- 'C:/users/dethier/OneDrive/R/StationSummary/'
 
+## directory for deployment summary, etc
+datadir <- paste0(rootdir, 'ontario_deployment_summary/')
 
 ## define output directory for the reports
-# outdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\automated_reports_ontario\)'
-outdir <- 'C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/'
+outdir <- paste0(rootdir, 'automated_reports_ontario/')
 
+
+## FTP creds
+ftp1 <- config::get('ftpu')
+ftp2 <- config::get('ftpp')
+ftp3 <- config::get('ftps')
 
 
 ## load most recent summary of all Ontario deployments
@@ -33,7 +48,6 @@ stations <- max(gtools::mixedsort(
              pattern = 'ontario_deployment_summary',
              full.names = T)
 )) %>% read.csv() 
-
 
 
 ## filtering only stations that active, in Project 1, or in Ontario
@@ -48,9 +62,11 @@ stations <- stations %>%
   filter(project_id == 1 | statprov_code == 'CA.ON') 
 
 
+all_recv_deps <- get_all_recv_deps()
+
 
 for (i in 1:nrow(stations)) {
-  # Get the name of the station
+  ## Get the name of the station
   name = stations[i, 'station_name']
   # find and delete the most recent report of this station (should just be one)
   existing_file <-
@@ -63,8 +79,9 @@ for (i in 1:nrow(stations)) {
   proceed = F
   if (!file.exists(existing_file)) {
     proceed = T
-  }
-  if (file.exists(existing_file)) {
+  } else if (is.na(stations[i, 'most_recent_batch'])){
+    proceed = F
+  } else {
     existing_date <-
       stringr::str_extract(existing_file, '[0-9]{4}-[0-9]{2}-[0-9]{2}')
     new_date <-
@@ -75,13 +92,38 @@ for (i in 1:nrow(stations)) {
     }
   }
   if (proceed == T) {
+    station <- stations[i, "station_id"]
+    output_file = paste0(outdir,
+                         name,
+                         '_',
+                         Sys.Date(),
+                         '.html')
     rmarkdown::render(
       'C:/GitHub/detection_report/generate_detection_report.Rmd',
-      output_file = paste0(outdir,
-                           name,
-                           '_',
-                           Sys.Date(),
-                           '.html')
+      output_file = output_file)
+    message(paste0('rendered ', name))
+    ## Save the file to the hosting account
+    ftp <- paste0(
+      'ftp://',
+      ftp1,
+      ':',
+      ftp2,
+      '@',
+      ftp3,
+      '/public_html/ontario_station_reports/',
+      paste0(name, '.html')
     )
-  }
+    Sys.sleep(10)
+    x <- RCurl::ftpUpload(what = output_file,
+                          to = ftp)
+  } else message(paste0('skipping ', name))
 }
+
+## remove ftp creds
+rm(ftp1)
+rm(ftp2)
+rm(ftp3)
+rm(ftp)
+
+
+

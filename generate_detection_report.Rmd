@@ -197,10 +197,10 @@ This map shows all the same animals as the table above, but displays all the add
 
 <br>
 
-```{r get taghits_tracks, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F}
+```{r get taghits and make map, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F, fig.keep='all'}
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
-taghits_file <- paste0(datadir, 'taghits_tracks/', name, '_taghits_tracks.csv')
+taghits_file <- paste0(rootdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
 
 
 # function to get the most recent taghits_tracks 
@@ -225,23 +225,12 @@ get_taghits_tracks <- function(summary){
     })
 }
 
-# get the most recent taghits_tracks file if on the network 
-# if not on the network, it will make getting the most recent data from the remote desktop easier
-# 
-
-if (toString(summary$tagDeployID) != '') {
-      if (tracks_from_db == T){
-        get_taghits_tracks(summary)
-  }
-} else stop('There are either no deployments or no tags')
-```
-
-```{r generate and view the map, fig.keep=T, results=T, message=F, eval=T, fig.show=T, warning=F}
-# create the map
-map <- map_tracks(summary, taghits_file)
-
-# view the map
-map
+## IF there are detections, get the most recent taghits_tracks file adn make map
+if (!toString(summary$tagDeployID) %in% c('', '0')) {
+  get_taghits_tracks(summary)
+  map <- map_tracks(summary, taghits_file)
+  map
+} else message(paste0('There are either no deployments or no tags for station ', name))
 ```
 
 <br> <br>
