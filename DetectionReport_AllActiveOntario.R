@@ -84,8 +84,7 @@ for (i in 1:nrow(stations)) {
   } else {
     existing_date <-
       stringr::str_extract(existing_file, '[0-9]{4}-[0-9]{2}-[0-9]{2}')
-    new_date <-
-      as.Date(stations[i, "most_recent_batch"])
+    new_date <- as.Date(stations[i, 'most_recent_batch'])
     if (new_date > existing_date) {
       proceed == T
       file.remove(existing_file)
