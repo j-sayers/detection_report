@@ -9,6 +9,13 @@
 #
 ####################################################################################
 
+
+
+## set to T in order to re-render all reports
+render_all = F
+
+
+
 ## wd needs to be explicitly set for the scheduled task
 setwd('C:/GitHub/detection_report')
 
@@ -90,6 +97,12 @@ for (i in 1:nrow(stations)) {
       file.remove(existing_file)
     }
   }
+  
+  
+  ## sometimes I want to redo them all 
+  if (render_all == T) proceed = T
+  
+  
   if (proceed == T) {
     station <- stations[i, "station_id"]
     output_file = paste0(outdir,
@@ -117,6 +130,7 @@ for (i in 1:nrow(stations)) {
                           to = ftp)
   } else message(paste0('skipping ', name))
 }
+
 
 ## remove ftp creds
 rm(ftp1)
