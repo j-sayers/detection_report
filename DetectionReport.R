@@ -23,7 +23,7 @@ summarize_by <- 1
 # provide a list of station(s) to summarize
 stations <- c(
   # 11209, # Aylmer
-  11917 # Blackwell
+  # 11917 # Blackwell
   # 11240 # Breakwater
   # 11244 # Bright
   # 10004 # Brighton
@@ -92,35 +92,40 @@ tracks_from_db <- T
 # this is a hack to remove obvious false positives 
 # prior to having the chance to flag them in the db
 to_remove <- c(
-   28152 # https://motus.org/data/tagDeploymentDetections?id=28152
-  ,10301 # https://motus.org/data/tagDeploymentDetections?id=10301 
-  ,20451 # https://motus.org/data/tagDeploymentDetections?id=20451
-  ,22776 # https://motus.org/data/tagDeployment?id=10273
-  ,24771 # https://motus.org/data/tagDeploymentDetections?id=24771
-  ,24728 # https://motus.org/data/track?tagDeploymentId=24728
-  ,25456 # https://motus.org/data/tagDeploymentDetections?id=25456
-  ,10283 # https://motus.org/data/track?tagDeploymentId=10283
-  ,22643 # https://motus.org/data/track?tagDeploymentId=22643
-  ,22638 # https://motus.org/data/track?tagDeploymentId=22638
-  ,33054 # https://motus.org/data/track?tagDeploymentId=33054      TEMPORARY. 
-  ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
-  ,24749 # https://motus.org/data/track?tagDeploymentId=24749
-  ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
-  ,32117 # https://motus.org/data/track?tagDeploymentId=32117
-  ,24747 # https://motus.org/data/track?tagDeploymentId=24747
-  ,34661 # https://motus.org/data/track?tagDeploymentId=34661
-  ,24936 # https://motus.org/data/tagDeploymentDetections?id=24936
-  ,34038 # https://motus.org/data/track?tagDeploymentId=34038
-  ,28207 # https://motus.org/data/track?tagDeploymentId=28207
-  ,28214 # https://motus.org/data/track?tagDeploymentId=28214
+  #  28152 # https://motus.org/data/tagDeploymentDetections?id=28152
+  # ,10301 # https://motus.org/data/tagDeploymentDetections?id=10301
+  # ,20451 # https://motus.org/data/tagDeploymentDetections?id=20451
+  # ,22776 # https://motus.org/data/tagDeployment?id=10273
+  # ,24771 # https://motus.org/data/tagDeploymentDetections?id=24771
+  # ,24728 # https://motus.org/data/track?tagDeploymentId=24728
+  # ,25456 # https://motus.org/data/tagDeploymentDetections?id=25456
+  # ,10283 # https://motus.org/data/track?tagDeploymentId=10283
+  # ,22643 # https://motus.org/data/track?tagDeploymentId=22643
+  # ,22638 # https://motus.org/data/track?tagDeploymentId=22638
+  # ,33054 # https://motus.org/data/track?tagDeploymentId=33054      TEMPORARY.
+  # ,1948 # https://motus.org/data/tagDeploymentDetections?id=1958
+  # ,24749 # https://motus.org/data/track?tagDeploymentId=24749
+  # ,21731 # https://motus.org/data/tagDeploymentDetections?id=21731
+  # ,32117 # https://motus.org/data/track?tagDeploymentId=32117
+  # ,24747 # https://motus.org/data/track?tagDeploymentId=24747
+  # ,34661 # https://motus.org/data/track?tagDeploymentId=34661
+  # ,24936 # https://motus.org/data/tagDeploymentDetections?id=24936
+  # ,34038 # https://motus.org/data/track?tagDeploymentId=34038
+  # ,28207 # https://motus.org/data/track?tagDeploymentId=28207
+  # ,28214 # https://motus.org/data/track?tagDeploymentId=28214
   )
 
 
 # connect to db to get station names to use in file names
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
-# define output directory
-outdir <- remoted('D:/OneDrive/R/StationSummary/')
+
+# directory for taghits file etc
+rootdir <- 'C:/users/dethier/OneDrive/R/StationSummary/'
+# define output directory for the reports
+# outdir <- r'(J:\.shortcut-targets-by-id\0B17GutSl-qqiWmhRZ0dydDM4aVk\Motus\Station Reports\Ontario Provincial Parks\)'
+outdir <- rootdir
+datadir <- rootdir
 
 
 if (summarize_by == 1) {

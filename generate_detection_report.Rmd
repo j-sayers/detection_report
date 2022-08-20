@@ -32,8 +32,6 @@ library(DT)
 # load helper functions
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
-outdir <-remoted(outdir)
-
 ```
 
 ```{r r get detection summary, message = F, results = F, warning = F}
@@ -129,13 +127,13 @@ if (summarize_by == 1){
   # get the first deployment for this site
   first_deploy <- site_deploys[site_deploys$dt_start ==  min(site_deploys$dt_start), ]
   line2 <- paste0('Start Date: ', format(as.Date(first_deploy$dt_start), '%B %d, %Y'))
-  
+
   # get the station location
   lat <- first_deploy$station_lat
   lon <- first_deploy$station_lon
   latlon <- paste0('http://www.openstreetmap.org/?mlat=', lat, '&mlon=', lon, '&zoom=7')
   
-  line6 <- paste0('Location: <a href= ', latlon, '>', lat, ', ', lon, '</a>')
+  lastline <- paste0('Location: <a href= ', latlon, '>', lat, ', ', lon, '</a>')
 
 } else if (summarize_by == 2){
   
@@ -143,7 +141,7 @@ if (summarize_by == 1){
   
   line2 <- paste0('First detection: ', min(summary$`First date detected`))
   
-  line6 <- ''
+  lastline <- ''
   
 } else if (summarize_by == 3){
   
@@ -151,7 +149,7 @@ if (summarize_by == 1){
   
   line2 <- paste0('First detection: ', min(summary$`First date detected`))
   
-  line6 <- ''
+  lastline <- ''
   
 }
 ```
@@ -171,7 +169,7 @@ Number of species detected: `r length(unique(summary$Species))`
 
 Number of individuals detected: `r nrow(summary)`
 
-`r line6`
+`r lastline`
 
 </div>
 
@@ -199,10 +197,10 @@ This map shows all the same animals as the table above, but displays all the add
 
 <br>
 
-```{r get taghits_tracks, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F}
+```{r get taghits and make map, echo=F, results=T, message=F, eval=T, fig.show=T, warning=F, fig.keep='all'}
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
-taghits_file <- paste0(outdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
+taghits_file <- paste0(rootdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
 
 
 # function to get the most recent taghits_tracks 
@@ -227,23 +225,12 @@ get_taghits_tracks <- function(summary){
     })
 }
 
-# get the most recent taghits_tracks file if on the network 
-# if not on the network, it will make getting the most recent data from the remote desktop easier
-# 
-
-if (toString(summary$tagDeployID) != '') {
-      if (tracks_from_db == T){
-        get_taghits_tracks(summary)
-  }
-} else stop('There are either no deployments or no tags')
-```
-
-```{r generate and view the map, fig.keep=T, results=T, message=F, eval=T, fig.show=T, warning=F}
-# create the map
-map <- map_tracks(summary, taghits_file)
-
-# view the map
-map
+## IF there are detections, get the most recent taghits_tracks file adn make map
+if (!toString(summary$tagDeployID) %in% c('', '0')) {
+  get_taghits_tracks(summary)
+  map <- map_tracks(summary, taghits_file)
+  map
+} else message(paste0('There are either no deployments or no tags for station ', name))
 ```
 
 <br> <br>
