@@ -25,8 +25,12 @@ stations <- c(
   # 11209, # Aylmer
   # 11917 # Blackwell
   # 11240 # Breakwater
+  # 11244 # Bright
   # 10004 # Brighton
-  10180 # Darlington
+  # 9907 # Conestogo
+  # 11039 # Cryderman
+  # 10180 # Darlington
+  10585 # Friday Harbour
   # 10226, # Hentz
   # 12131, # Holiday Beach
   # 11426, # Lemoine Point
