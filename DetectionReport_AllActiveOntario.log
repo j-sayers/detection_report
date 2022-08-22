@@ -2173,3 +2173,1918 @@ Warning messages:
   incomplete final line found on 'C:\GitHub\detection_report\config.yml'
 4: In min.default(numeric(0), na.rm = FALSE) :
   no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning messages:
+1: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+skipping Bluewater
+skipping St.Clair NWA
+skipping PresqueIsle
+skipping Priceville
+skipping Bruckner Island
+skipping Pinery_Provincial_Park
+skipping Hunt High
+skipping Ashdad
+skipping GB-Harris
+skipping Little McCoy
+skipping Hentz
+skipping Crysler Park Marina
+skipping Pelee_Island
+skipping Harrington
+skipping Rouge Marsh North
+skipping Blackwell
+skipping South_Shore
+skipping Hunt
+skipping Werden_3
+skipping Shawanaga First Nation
+skipping Arkey's Acres
+skipping Glass
+skipping QUBS Birdhouse
+skipping Bronte Creek Provincial Park
+skipping CCIW
+skipping Koffler
+skipping Alderville Black Oak Savanna
+skipping Cabot_Head
+skipping Mosaic Port Maitland
+skipping Peers
+skipping Maple Leaf
+skipping Holiday Beach
+skipping Mount Forest
+skipping Russell Reid PS
+skipping Mallett
+skipping Killbear
+skipping Clear Creek
+skipping Grimsby Wetland
+skipping Craigmont Ridge
+skipping Wolfe
+skipping Walsingham Super Tower
+skipping Bright
+skipping UWO - SSC
+skipping Split Rock
+skipping Torrance B
+skipping Bear Wetlands North
+skipping Napanee LOSH
+skipping Carden LOSH
+skipping Monocliffs
+skipping Otter Lake
+skipping Mitchell
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Loading required package: sp
+Loading required package: leaflet
+Loading required package: leaflet.extras
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandocb89c40115b96.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\Rtmp2vmSEf\rmarkdown-strb89c431d2484.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Atik-1_2022-08-21.html
+rendered Atik-1
+skipping Westfield Correll
+skipping Torrance C
+skipping Brock University
+skipping Burntpoint
+skipping Scotch_Bush
+skipping Griffith
+skipping Toronto Zoo
+skipping Aylmer
+skipping Hilliardton
+skipping Bob Hunter Park
+skipping Girard
+skipping Rondeau Provincial Park
+skipping Port Severn Wetland2
+skipping Campbellville
+skipping Brechin
+skipping West Port Bruce
+skipping Wilmot Creek
+skipping Zorad_2
+skipping Lennox OPG
+skipping Hillman
+skipping New Farm
+skipping Point Pelee
+skipping GB-Alexander
+skipping GB-Lougheed
+skipping Old Cut
+skipping Chesley
+skipping Rouge Marsh South
+skipping Cambridge_RARE
+skipping Thomson Reserve
+skipping Malone University
+skipping Grundy
+skipping Hagersville_Landfill
+skipping Shaw Woods
+skipping Uphill
+skipping Magnetawan
+skipping Sydenham
+skipping Cedar Trail
+skipping Hullet Provincial Wildlife Area
+skipping Magnetawan First Nation
+skipping Sharps Hill
+skipping Wasaga
+skipping Camp Onondaga - THFC
+skipping Prince Edward Point Bird Observatory
+skipping GB-Tadenac
+skipping Gerdau
+skipping The Tip
+skipping SpruceHaven
+skipping Flamborough_Quarry
+skipping Turkey Point
+skipping Bromley
+skipping Bonnechere Caves2
+skipping North Gwillimbury
+skipping Moosonee
+skipping Binbrook Conservation Area
+skipping Des Joachims OPG
+skipping Jarmo's
+skipping Forks_of_the_Credit
+skipping Cryderman Tower
+skipping Ruthven
+skipping Kilgas
+skipping High Park
+skipping Luther_Marsh
+skipping Guelph_Lake_CA
+skipping Lemoine Point C.A.
+skipping Brighton
+skipping Old Cut Dyke
+skipping Tommy Thompson Park2
+skipping Stewartville
+skipping Sandbanks Provincial Park
+skipping Meaford
+skipping Marthaville_CA
+skipping Langton
+skipping Pickering OPG
+skipping Nanticoke
+skipping Auzins
+skipping Eganville
+skipping BSC HQ
+skipping North Bay
+skipping Darlington OPG
+skipping Perrault
+skipping Friday Harbour
+skipping Point Farms Provincial Park
+skipping GB-Go Home
+skipping Bruce Peninsula
+skipping Merlin
+skipping Conestogo
+skipping Breakwater
+Warning messages:
+1: In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
+  no non-missing arguments, returning NA
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+3: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+4: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+5: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning message:
+In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+Warning messages:
+1: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+2: In readLines(con, warn = readLines.warn) :
+  incomplete final line found on 'C:\GitHub\detection_report\config.yml'
+skipping St.Clair NWA
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Loading required package: sp
+Loading required package: leaflet
+Loading required package: leaflet.extras
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c15b91a68.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c4429230f.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Brock University_2022-08-22.html
+rendered Brock University
+skipping PresqueIsle
+skipping Priceville
+skipping Bruckner Island
+skipping Pinery_Provincial_Park
+skipping Hunt High
+skipping Ashdad
+skipping GB-Harris
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c30c71fc7.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c263a1d04.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/North Bay_2022-08-22.html
+rendered North Bay
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c46fe5744.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c32321eea.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Mallett_2022-08-22.html
+rendered Mallett
+skipping Little McCoy
+skipping Hentz
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c16ef6d1b.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c6d68712a.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Thomson Reserve_2022-08-22.html
+rendered Thomson Reserve
+skipping Harrington
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c7ac68f8.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c5bbc2f73.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Jarmo's_2022-08-22.html
+rendered Jarmo's
+skipping Rouge Marsh North
+skipping Blackwell
+skipping South_Shore
+skipping Hunt
+skipping Werden_3
+skipping Arkey's Acres
+skipping Glass
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c7b4c684c.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c41524f49.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Malone University_2022-08-22.html
+rendered Malone University
+skipping QUBS Birdhouse
+skipping Bronte Creek Provincial Park
+skipping CCIW
+skipping Koffler
+skipping Alderville Black Oak Savanna
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c72402457.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c370f11b8.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Auzins_2022-08-22.html
+rendered Auzins
+skipping Cabot_Head
+skipping Mosaic Port Maitland
+skipping Peers
+skipping Maple Leaf
+skipping Holiday Beach
+skipping Mount Forest
+skipping Clear Creek
+skipping Craigmont Ridge
+skipping Bright
+skipping Torrance B
+skipping Bear Wetlands North
+skipping Napanee LOSH
+skipping Carden LOSH
+skipping Monocliffs
+skipping Mitchell
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c8a6b93.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c6f4b60e9.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/UWO - SSC_2022-08-22.html
+rendered UWO - SSC
+skipping Torrance C
+skipping Burntpoint
+skipping Scotch_Bush
+skipping Griffith
+skipping Toronto Zoo
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c5114d3e.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c40747c6.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Walsingham Super Tower_2022-08-22.html
+rendered Walsingham Super Tower
+skipping Aylmer
+skipping Hilliardton
+skipping Bob Hunter Park
+skipping Girard
+skipping Rondeau Provincial Park
+skipping Port Severn Wetland2
+skipping Campbellville
+skipping Brechin
+skipping West Port Bruce
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c18933337.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c619f14ed.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Shawanaga First Nation_2022-08-22.html
+rendered Shawanaga First Nation
+skipping Wilmot Creek
+skipping Zorad_2
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c45cb196f.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c493763a9.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Westfield Correll_2022-08-22.html
+rendered Westfield Correll
+skipping Lennox OPG
+skipping Hillman
+skipping New Farm
+skipping Point Pelee
+skipping GB-Alexander
+skipping GB-Lougheed
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c5981b90.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c60424a8.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Crysler Park Marina_2022-08-22.html
+rendered Crysler Park Marina
+skipping Old Cut
+skipping Chesley
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c28ff60b3.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c4cfd65a4.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Bluewater_2022-08-22.html
+rendered Bluewater
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c4b01623c.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c5ba723e.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Russell Reid PS_2022-08-22.html
+rendered Russell Reid PS
+skipping Rouge Marsh South
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c6e2e7630.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c394849b3.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Wolfe_2022-08-22.html
+rendered Wolfe
+skipping Cambridge_RARE
+skipping Atik-1
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c7c5636a1.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c744a5c3d.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Des Joachims OPG_2022-08-22.html
+rendered Des Joachims OPG
+skipping Grundy
+skipping Hagersville_Landfill
+skipping Shaw Woods
+skipping Uphill
+skipping Magnetawan
+skipping Sydenham
+skipping Cedar Trail
+skipping Hullet Provincial Wildlife Area
+skipping Sharps Hill
+skipping Wasaga
+skipping Camp Onondaga - THFC
+skipping Prince Edward Point Bird Observatory
+skipping GB-Tadenac
+skipping Gerdau
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c17e36707.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c5348203e.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/BSC HQ_2022-08-22.html
+rendered BSC HQ
+skipping The Tip
+skipping SpruceHaven
+skipping Flamborough_Quarry
+skipping Turkey Point
+skipping Bromley
+skipping Bonnechere Caves2
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c393e25a3.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c1761627c.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Grimsby Wetland_2022-08-22.html
+rendered Grimsby Wetland
+skipping Moosonee
+skipping Binbrook Conservation Area
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c8211a32.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c27e44e1f.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/North Gwillimbury_2022-08-22.html
+rendered North Gwillimbury
+skipping Forks_of_the_Credit
+skipping Cryderman Tower
+skipping Ruthven
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c1100ca6.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c7d427834.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Pelee_Island_2022-08-22.html
+rendered Pelee_Island
+skipping Kilgas
+skipping High Park
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c3915d9d.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c32094fd7.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Killbear_2022-08-22.html
+rendered Killbear
+skipping Luther_Marsh
+skipping Guelph_Lake_CA
+skipping Lemoine Point C.A.
+skipping Brighton
+skipping Old Cut Dyke
+skipping Tommy Thompson Park2
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c63b67fc7.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c14f41f5d.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Split Rock_2022-08-22.html
+rendered Split Rock
+skipping Stewartville
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c29fb2c84.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c23331c0d.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Otter Lake_2022-08-22.html
+rendered Otter Lake
+skipping Sandbanks Provincial Park
+skipping Meaford
+skipping Marthaville_CA
+skipping Langton
+skipping Pickering OPG
+skipping Nanticoke
+skipping Eganville
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |......                                                                |   9%
+  ordinary text without R code
+
+  |                                                                              |.............                                                         |  18%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...................                                                   |  27%
+  ordinary text without R code
+
+  |                                                                              |.........................                                             |  36%
+label: r get detection summary (with options) 
+List of 3
+ $ message: logi FALSE
+ $ results: logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |................................                                      |  45%
+  ordinary text without R code
+
+  |                                                                              |......................................                                |  55%
+label: dates and titles
+  |                                                                              |.............................................                         |  64%
+   inline R code fragments
+
+  |                                                                              |...................................................                   |  73%
+label: summarize good tags (with options) 
+List of 3
+ $ fig.keep: logi TRUE
+ $ fig.show: logi TRUE
+ $ results : logi TRUE
+
+  |                                                                              |.........................................................             |  82%
+  ordinary text without R code
+
+  |                                                                              |................................................................      |  91%
+label: get taghits and make map (with options) 
+List of 7
+ $ echo    : logi FALSE
+ $ results : logi TRUE
+ $ message : logi FALSE
+ $ eval    : logi TRUE
+ $ fig.show: logi TRUE
+ $ warning : logi FALSE
+ $ fig.keep: chr "all"
+
+Assuming "longitude" and "latitude" are longitude and latitude, respectively
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+output file: generate_detection_report.knit.md
+
+"C:/PROGRA~1/Pandoc/pandoc" +RTS -K512m -RTS generate_detection_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoca35c61dd6f57.html --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\Users\dethier\Documents\R\win-library\4.1\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\dethier\AppData\Local\Temp\RtmpKmopN9\rmarkdown-stra35c5c6d294b.html" 
+[WARNING] This document format requires a nonempty <title> element.
+  Defaulting to 'generate_detection_report.knit' as the title.
+  To specify a title, use 'title' in metadata or --metadata title="...".
+
+Output created: C:/users/dethier/OneDrive/R/StationSummary/automated_reports_ontario/Magnetawan First Nation_2022-08-22.html
+rendered Magnetawan First Nation
+skipping Darlington OPG
+skipping Perrault
+skipping Friday Harbour
+skipping Point Farms Provincial Park
+skipping GB-Go Home
+skipping Bruce Peninsula
+skipping Merlin
+skipping Conestogo
+skipping Breakwater
+There were 50 or more warnings (use warnings() to see the first 50)
