@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 1
+summarize_by <- 2
 
 
 
@@ -54,7 +54,8 @@ stations <- c(
 projects <- c(
   # 417 # Georgian Bay
   # 116 # Migration in Song Sparrows
-  213 # MPG Ranch
+  # 213 # MPG Ranch
+  419 # New England Monarchs
 ) 
 
 
