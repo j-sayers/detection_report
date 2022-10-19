@@ -74,11 +74,11 @@ paste0(
   n_hits, 
   english_name, 
   test
-from det_taghits_daily a
-  left join tags_deployments b on b.id = a.tag_deploy_id
-  left join lk_species c on c.species_id = b.species_id
-  left join tags d on d.id = b.tag_id
-  left join projects e on e.id = d.project_id ',
+from det_taghits_daily a with (nolock)
+  left join tags_deployments b with (nolock) on b.id = a.tag_deploy_id
+  left join lk_species c with (nolock) on c.species_id = b.species_id
+  left join tags d with (nolock) on d.id = b.tag_id
+  left join projects e with (nolock) on e.id = d.project_id ',
 query_condition
 )
 
