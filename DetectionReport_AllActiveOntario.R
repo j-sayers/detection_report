@@ -43,9 +43,9 @@ outdir <- paste0(rootdir, 'automated_reports_ontario/')
 
 
 ## FTP creds
-ftp1 <- config::get('ftpu')
-ftp2 <- config::get('ftpp')
-ftp3 <- config::get('ftps')
+ftp1 <- keyring::key_list("ftp")[1,2]
+ftp2 <- keyring::key_get("ftp", keyring::key_list("ftp")[1,2])
+ftp3 <- '23.229.189.195'
 
 
 ## load most recent summary of all Ontario deployments

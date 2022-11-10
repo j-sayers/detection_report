@@ -7,3 +7,4 @@ config.yml
 detection_report.Rproj
 DetectionReport_AllActiveOntario.log
 .Rhistory
+config.yml.bak
