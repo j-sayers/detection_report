@@ -52,10 +52,11 @@ stations <- c(
 
 # specify a project whose tags to summarize
 projects <- c(
-  417 # Georgian Bay
+  # 417 # Georgian Bay
   # 116 # Migration in Song Sparrows
   # 213 # MPG Ranch
   # 419 # New England Monarchs
+  101 # Morningstar bats
 ) 
 
 
