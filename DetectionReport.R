@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 1
+summarize_by <- 2
 
 
 
@@ -31,7 +31,7 @@ stations <- c(
   # 11039 # Cryderman
   # 10180 # Darlington
   # 10585 # Friday Harbour
-  11352 # Gerdau
+  # 11352 # Gerdau
   # 10226, # Hentz
   # 12131, # Holiday Beach
   # 11426, # Lemoine Point
@@ -47,18 +47,20 @@ stations <- c(
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
+  11255 ## Onondaga
 )
 
 
 
 # specify a project whose tags to summarize
 projects <- c(
-  # 417 # Georgian Bay
-  # 116 # Migration in Song Sparrows
-  # 213 # MPG Ranch
-  # 419 # New England Monarchs
-  # 101 # Morningstar bats
-  145 # Kirtland warbler
+  # 417 ## Georgian Bay
+  # 116 ## Migration in Song Sparrows
+  # 213 ## MPG Ranch
+  # 419 ## New England Monarchs
+  # 101 ## Morningstar bats
+  # 145 ## Kirtland warbler
+  85 ## Snow bunting
 ) 
 
 
