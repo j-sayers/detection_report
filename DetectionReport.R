@@ -61,6 +61,7 @@ projects <- c(
   # 101 ## Morningstar bats
   # 145 ## Kirtland warbler
   85 ## Snow bunting
+  # 532 # bats of georgian bay
 ) 
 
 
