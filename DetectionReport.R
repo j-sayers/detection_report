@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 2
+summarize_by <- 1
 
 
 
@@ -49,6 +49,28 @@ stations <- c(
   # 9913 # West Port Bruce
   11255 ## Onondaga
 )
+
+
+
+opp <- c(
+  11573, ## Rondeau
+  11641, ## Turkey Point
+  11541, ## Point Farms
+  11418, ## Komoka
+  11534, ## Pinery
+  11604, ## Short Hills
+  11445, ## MacGregor
+  11246, ## Bronte
+  11587, ## Sandbanks
+  11587, ## Cabot head
+  11310, ## Earl Rowe
+  11339, ## Forks of the Credit
+  10211,  ## Grundy
+  11412,## Killbear
+  11728 ## Mono Cliffs
+)
+
+# stations <- opp
 
 
 
@@ -143,12 +165,8 @@ if (summarize_by == 1) {
     name = all_recv_deps[station_id == station, station_name][1]
     rmarkdown::render(
       'C:/GitHub/detection_report/generate_detection_report.Rmd',
-      output_file = paste0(outdir,
-                           name,
-                           '_',
-                           Sys.Date(),
-                           '.html')
-    )
+      output_format = 'all')
+    
   }
   
 } else if (summarize_by == 2) {

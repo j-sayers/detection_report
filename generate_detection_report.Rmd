@@ -5,6 +5,7 @@ output:
   pdf_document: default
 editor_options:
   chunk_output_type: inline
+  always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -32,6 +33,243 @@ library(DT)
 # load helper functions
 source('C:/GitHub/motus_scripts/helper_functions.R')
 
+## check for webshot and phantomJS
+## https://bookdown.org/yihui/rmarkdown/interactive-documents.html#intro-widgets
+ws <- require(webshot)
+if (ws == FALSE) {
+  stop('webshot is not installed')
+}
+if (webshot::is_phantomjs_installed() == F) {
+  stop('phantomjs is not installed via webshot')
+}
+```
+
+```{r map tracks}
+#### map tracks ####
+## Create a map of track and points (from taghits_tracks)
+## Takes a tag summary (from the summarize_tags function) and either a csv
+## of the relevant taghits_tracks table or queries the db directly
+map_tracks <- function(tagsum, tracks_file = NULL) {
+  require(sp)
+  require(leaflet)
+  require(leaflet.extras)
+  
+  # if no excel file of taghits_tracks is passed in, try querying the db
+  if (is.null(tracks_file)) {
+    query <-
+      paste0(
+        'select * from det_taghits_tracks where tagDeployId in (',
+        toString(tagsum$tagDeployID),
+        ')'
+      )
+    
+    tryCatch({
+      ## Connect to DB
+      db <- DBI::dbConnect(
+        odbc::odbc(),
+        Driver   = 'ODBC Driver 17 for SQL Server',
+        Server   = '174.140.177.41',
+        Database = 'motus',
+        UID      = keyring::key_list('mdb')[1,2],
+        PWD      = keyring::key_get('mdb', keyring::key_list('mdb')[1,2]),
+        Port     = 1433
+      )
+      
+      taghits_tracks <-
+        as.data.table(DBI::dbGetQuery(db, query)) %>%
+        mutate(
+          begin_s = as.POSIXct(begin_s, tz = 'UTC', origin = '1970-01-01'),
+          end_s = as.POSIXct(end_s, tz = 'UTC', origin = '1970-01-01')
+        )
+      
+      DBI::dbDisconnect(db)
+    },
+    error = function(e) {
+      message(query)
+    })
+    
+  } else if (!is.na(tracks_file)) {
+    taghits_tracks <- as.data.table(read.csv(tracks_file) %>%
+                                      mutate(
+                                        begin_s = as.POSIXct(begin_s , tz = 'UTC', origin = '1970-01-01'),
+                                        end_s = as.POSIXct(end_s, tz = 'UTC', origin = '1970-01-01')
+                                      ))
+  }
+  
+  # rename the tagDeployId column to perform an easier join
+  names(taghits_tracks)[names(taghits_tracks) == 'tagDeployId'] <-
+    'tagDeployID'
+  
+  # remove any tagDeployID in the taghits_tracks that isn't in the tags summaryu passed in
+  # This can occur if a tagdeployID was added to the to_remove list in station_summary.R
+  # but then the taghits_tracks local file was not updated from the db
+  taghits_tracks <- taghits_tracks %>%
+    filter(tagDeployID %in% tagsum$tagDeployID)
+  
+  # Join the taghits_tracks to goodsum for species name, track links etc...
+  taghits_tracks <-
+    left_join(taghits_tracks, tagsum, by = 'tagDeployID')
+  
+  # Initialize empty data table
+  tracks <- data.table()
+  
+  # move any records that should be tracks into the tracks data frame
+  for (i in 1:nrow(taghits_tracks)) {
+    if ((taghits_tracks[i]$isTrackStart == 1) |
+        (
+          taghits_tracks[i]$isTrackStart == 0 &&
+          taghits_tracks[i - 1]$isTrackStart == 1 &&
+          taghits_tracks[i]$tagDeployID == taghits_tracks[i - 1]$tagDeployID &&
+          i != 1
+        )) {
+      tracks <- rbind(tracks, taghits_tracks[i])
+    }
+  }
+  
+  ## add new columns for the calculated fields
+  tracks$distance <- NA
+  tracks$time <- NA
+  tracks$speed <- NA
+  tracks <-
+    mutate_if(tracks, is.logical, as.numeric) # for some reason the previous made logical columns
+  
+  ## Add NA rows between different tag deployments and unlikely speeds
+  i <- 2
+  while (i <= nrow(tracks)) {
+    if (!is.na(tracks[i]$tagDeployID) &&
+        !is.na(tracks[i - 1]$tagDeployID)) {
+      if (tracks[i]$tagDeployID != tracks[i - 1]$tagDeployID |
+          (tracks[i]$isTrackStart == 1 &&
+           tracks[i - 1]$isTrackStart == 0))
+      {
+        tracks <- add_row(tracks, .before = i)
+      }
+      else if (tracks[i]$tagDeployID == tracks[i - 1]$tagDeployID) {
+        tracks[i]$distance <- gcd(tracks[i]$longitude,
+                                  tracks[i]$latitude,
+                                  tracks[i - 1]$longitude,
+                                  tracks[i - 1]$latitude)
+        tracks[i]$time <-
+          difftime(tracks[i]$begin_s,
+                   tracks[i - 1]$end_s,
+                   units = 'hours',
+                   tz = 'UTC')
+        tracks[i]$speed <- tracks[i]$distance / tracks[i]$time
+        if (tracks[i]$speed > 130 &&
+            tracks[i]$speed != Inf && tracks[i]$distance > 100) {
+          tracks <- add_row(tracks, .before = i)
+        }
+      }
+    }
+    i <- i + 1
+  }
+  
+  # create a character column holding the TagDeployID
+  # so I can append to it and make each track segment unique
+  tracks$segment <- as.character(tracks[[1]])
+  
+  j <- 1
+  group <- data.frame()
+  
+  # loops through the dt and appends the groups of segments with a unique identifier
+  for (i in 1:nrow(tracks)) {
+    if (!is.na(tracks[i]$tagDeployID)) {
+      group <- rbind(group, i)
+    }
+    if (is.na(tracks[i]$tagDeployID) | i == nrow(tracks)) {
+      # append $segment with j where at the row numbers in group
+      tracks[group[[1]], 'segment'] <-
+        paste0(tracks[i - 1, 'segment'], '-', as.character(j))
+      # increment j
+      j <- j + 1
+      # wipe the dataframe clean
+      group <- data.frame()
+    }
+  }
+  
+  # remove all the rows with NA now
+  tracks <- tracks[!is.na(tagDeployID),]
+  
+  # create a list of Line objects and sets the ID of each as the tagDeployID
+  tracks_lines <- lapply(unique(tracks$segment), function(x) {
+    Lines(Line(tracks[segment == x, .(longitude, latitude)]), ID = x)
+  })
+  
+  ## create a SpatialLines object out of the list of Lines
+  SL_tracks <- SpatialLines(tracks_lines)
+  
+  ## set row names on the good tags summary to join with the SpatialLines
+  seg_sum <- tracks[match(unique(tracks$segment), tracks$segment),]
+  
+  # set row names of the list of unique segments in order to join to the SpatialLinesDataFrame
+  rownames(seg_sum) <- seg_sum$segment
+  
+  sp_line_df <- SpatialLinesDataFrame(SL_tracks, data = seg_sum)
+  
+  # some options for defining the width of the map here:
+  # https://stackoverflow.com/questions/35134960/adjust-size-of-leaflet-map-in-rmarkdown-html
+  map <- leaflet(width = '100%') %>%
+    addProviderTiles(providers$OpenStreetMap.Mapnik, group = 'Open Street Map') %>%
+    addProviderTiles(providers$Esri.WorldImagery, group = 'World Imagery') %>%
+    addLayersControl(baseGroups = c('World Imagery', 'Open Street Map')) %>%
+    # addPolylines(data = tracks, lat = tracks$latitude, lng = tracks$longitude,
+    #              color = 'red',
+    #              weight = 2,
+    #              highlightOptions = highlightOptions(color = 'white'),
+    #              popup = paste0(tracks$Species, '<br/><br/> * Tracks and locations displayed on this map may not represent true movement patterns, especially when much time has elapsed between locations, or for hits recorded by receivers during periods of high background radio noise. For a more accurate (but still approximate) map, along with other details of this tag and the animal it was deployed on, <a href=', tracks$map_link, '> view it on Motus.org </a><br/><br/>If any points or tracks displayed here look suspicious (e.g. potential false positives) please contact motus@birdscanada.org and bring it to our attention.',
+    #                             tracks$tagDeployID))  %>%
+    addPolylines(
+      data = sp_line_df,
+      color = 'red',
+      options = leafletOptions(zoomControl = FALSE),
+      highlightOptions = highlightOptions(color = 'white'),
+      popup = paste0(
+        'Species: ',
+        sp_line_df$Species,
+        '<br/><br/> * Tracks and locations
+                                displayed on this map may not represent true movement patterns,
+                                especially when much time has elapsed between locations, or for hits
+                                recorded by receivers during periods of high background radio noise.
+                                For a more accurate (but still approximate) map, along with other details
+                                of this tag and the animal it was deployed on, <a href=',
+        sp_line_df$map_link,
+        '
+                                target="_blank">view it on Motus.org </a><br/><br/>If any points or tracks displayed here
+                                look problematic (e.g. potential false positives) please contact
+                                motus@birdscanada.org and bring it to our attention.'
+      )
+    ) %>%
+    addCircleMarkers(
+      data = taghits_tracks,
+      radius = 2,
+      weight = 2,
+      fillColor = 'red',
+      color = 'red',
+      fillOpacity = 1,
+      popup = paste0(
+        'Species: ',
+        ifelse(!is.na(taghits_tracks$Species),
+               taghits_tracks$Species,
+               '[species not entered]'),
+        '<br/><br/> * Tracks and locations
+                                    displayed on this map may not represent true movement patterns,
+                                    especially when much time has elapsed between locations, or for hits
+                                    recorded by receivers during periods of high background radio noise.
+                                    For a more accurate (but still approximate) map, along with other details
+                                    of this tag and the animal it was deployed on, <a href=',
+        taghits_tracks$map_link,
+        '
+                                    target="_blank">view it on Motus.org </a><br/><br/>If any points or tracks displayed here
+                                    look problematic (e.g. potential false positives) please contact
+                                    motus@birdscanada.org and bring it to our attention.'
+      )
+    ) 
+  
+  return(map)
+}
+
+
+
 ```
 
 ```{r r get detection summary, message = F, results = F, warning = F}
@@ -42,6 +280,7 @@ if (summarize_by == 1){
   # create list of all deployments with the desired station ID site name and project
   site_deploys <- all_recv_deps %>%
   filter(station_id == station)
+  
   
   query_condition <- paste0(
     'where sensor_deploy_id in (',
