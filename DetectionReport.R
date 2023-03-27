@@ -16,7 +16,7 @@
 # 1) List of stations
 # 2) A project's tags
 # 3) A custom query
-summarize_by <- 2
+summarize_by <- 1
 
 
 
@@ -47,7 +47,9 @@ stations <- c(
   # 11578, # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
-  11255 ## Onondaga
+  # 11255 ## Onondaga
+  11618 ## St Clair
+  
 )
 
 
