@@ -48,7 +48,8 @@ stations <- c(
   # 9912 # Walsingham
   # 9913 # West Port Bruce
   # 11255 ## Onondaga
-  11618 ## St Clair
+  # 11618 ## St Clair
+  11137 # Priceville
   
 )
 
