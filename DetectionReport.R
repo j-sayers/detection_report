@@ -49,8 +49,9 @@ stations <- c(
   # 9913 # West Port Bruce
   # 11255 ## Onondaga
   # 11618 ## St Clair
-  11137 # Priceville
-  
+  # 11137 # Priceville
+  # 11541 # Point Farms
+  9824 # Moosenee
 )
 
 
