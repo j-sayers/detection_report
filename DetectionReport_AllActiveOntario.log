@@ -55233,3 +55233,58 @@ In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
   no non-missing arguments, returning NA
 
 Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+v ggplot2 3.4.0     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.1     v stringr 1.4.1
+v readr   2.1.3     v forcats 0.5.2
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   8%
+  ordinary text without R code
+
+  |                                                                              |...........                                                           |  15%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+Quitting from lines 12-45 (generate_detection_report.Rmd) 
+Error in eval(expr, envir, enclos) : webshot is not installed
+Calls: <Anonymous> ... withVisible -> eval_with_user_handlers -> eval -> eval
+In addition: Warning message:
+In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
+  no non-missing arguments, returning NA
+
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+v ggplot2 3.4.0     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.1     v stringr 1.4.1
+v readr   2.1.3     v forcats 0.5.2
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+skipping Auzins
+
+
+processing file: generate_detection_report.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |.....                                                                 |   8%
+  ordinary text without R code
+
+  |                                                                              |...........                                                           |  15%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+Quitting from lines 12-45 (generate_detection_report.Rmd) 
+Error in eval(expr, envir, enclos) : webshot is not installed
+Calls: <Anonymous> ... withVisible -> eval_with_user_handlers -> eval -> eval
+In addition: Warning message:
+In max(gtools::mixedsort(list.files(outdir, pattern = name, full.names = T))) :
+  no non-missing arguments, returning NA
+
+Execution halted

@@ -70,7 +70,7 @@ opp <- c(
   11728 ## Mono Cliffs
 )
 
-# stations <- opp
+stations <- opp
 
 
 
@@ -165,7 +165,12 @@ if (summarize_by == 1) {
     name = all_recv_deps[station_id == station, station_name][1]
     rmarkdown::render(
       'C:/GitHub/detection_report/generate_detection_report.Rmd',
-      output_format = 'all')
+      # output_format = 'all',
+      output_file = paste0(outdir,
+                           name,
+                           '_',
+                           Sys.Date(),
+                           '.html'))
     
   }
   
