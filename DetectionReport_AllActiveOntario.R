@@ -11,7 +11,7 @@
 
 
 
-## set to T in order to re-render all reports
+## set to T in orderFto re-render all reports
 render_all = F
 
 
