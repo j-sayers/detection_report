@@ -188,7 +188,8 @@ The table below summarizes all tagged animals that have been detected at this st
 
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
 datatable(arrange(summary[, c('Species', 'First date detected', 'View on Motus.org')]),
-          escape = F)
+          escape = F,
+          filter = 'top')
 ```
 
 <br>
