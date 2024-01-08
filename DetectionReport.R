@@ -51,7 +51,8 @@ stations <- c(
   # 11618 ## St Clair
   # 11137 # Priceville
   # 11541 # Point Farms
-  9824 # Moosenee
+  # 9824 # Moosenee
+  11447 # Ahmic Lake
 )
 
 

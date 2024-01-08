@@ -93,6 +93,7 @@ summary <- daily_summary %>%
                        english_name,
                        '[species not entered]'),
     'First date detected' = min(date),
+    'Last date detected' = max(date),
     mfg_id,
     burst_interval,
     project_id,
@@ -187,7 +188,10 @@ The table below summarizes all tagged animals that have been detected at this st
 <br>
 
 ```{r summarize good tags, fig.keep=T, fig.show=T, results=T}
-datatable(arrange(summary[, c('Species', 'First date detected', 'View on Motus.org')]),
+datatable(arrange(summary[, c('Species', 
+                              'First date detected', 
+                              'Last date detected', 
+                              'View on Motus.org')]),
           escape = F,
           filter = 'top')
 ```
