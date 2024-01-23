@@ -44,7 +44,7 @@ stations <- c(
   # 11532 # Pickering
   # 11534 # Pinery
   # 11555 # Prince Edward Point
-  # 11578, # Russel Reid
+  11578 # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
   # 11255 ## Onondaga
@@ -52,7 +52,7 @@ stations <- c(
   # 11137 # Priceville
   # 11541 # Point Farms
   # 9824 # Moosenee
-  11447 # Ahmic Lake
+  # 11447 # Ahmic Lake
 )
 
 
