@@ -41,10 +41,15 @@ stations <- c(
   # 11356 # Glass
   # 10287 # North Gwillimbury Forest
   # 11512 # Otter Lake
-  # 11532 # Pickering
+  10005, ##	Saunders OPG
+  10180, ##	Darlington OPG
+  10214, ##	Lennox OPG
+  10652, ##	Des Joachims OPG
+  11486, ##	Nanticoke OPG
+  11532  ##	Pickering OPG
   # 11534 # Pinery
   # 11555 # Prince Edward Point
-  11578 # Russel Reid
+  # 11578 # Russel Reid
   # 9912 # Walsingham
   # 9913 # West Port Bruce
   # 11255 ## Onondaga
@@ -65,8 +70,9 @@ projects <- c(
   # 419 ## New England Monarchs
   # 101 ## Morningstar bats
   # 145 ## Kirtland warbler
-  85 ## Snow bunting
+  # 85 ## Snow bunting
   # 532 # bats of georgian bay
+  722 ## OPG
 ) 
 
 
