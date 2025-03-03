@@ -43,7 +43,7 @@ connect_to_db <- function() {
     db <- DBI::dbConnect(
       odbc::odbc(),
       Driver   = 'ODBC Driver 17 for SQL Server',
-      Server   = '174.140.177.41',
+      Server   = keyring::key_get('ip', keyring::key_list('ip')[1,2]),
       Database = 'motus',
       UID      = keyring::key_list('mdb')[1,2],
       PWD      = keyring::key_get('mdb', keyring::key_list('mdb')[1,2]),
