@@ -37,6 +37,7 @@ source('C:/GitHub/motus_scripts/helper_functions.R')
 ```
 
 ```{r functions}
+#### Connect_to_DB ####
 connect_to_db <- function() {
   tryCatch({
     ## Connect to DB
@@ -57,8 +58,32 @@ connect_to_db <- function() {
   })
   
   return(db)
-  
 }
+
+
+#### Get_Taghits_tracks ####
+# function to get the most recent taghits_tracks 
+get_taghits_tracks <- function(summary){
+  # construct the query to get the data from det_taghits_tracks
+  query <- paste0('select * from det_taghits_tracks where tagDeployId in (',
+                  toString(summary$tagDeployID), ')')  
+  
+  # try to connect to the database
+  tryCatch({
+    db <- connect_to_db()
+    taghits_tracks <- as.data.table(DBI::dbGetQuery(db, query)) %>%
+      mutate(begin_s = as.POSIXct(begin_s, tz = 'UTC', origin = '1970-01-01'),
+             end_s = as.POSIXct(end_s, tz = 'UTC', origin = '1970-01-01'))
+    write.csv(taghits_tracks, taghits_file)
+    }, error = function(e) {
+    message(query)
+    clipr::write_clip(query) # writes the query to the clipboard for easy pasting into SSMS
+    invisible(readline(prompt = 'Use query in remote desktop. \nCopy results with headers. \nPress enter when ready. '))
+    taghits_tracks <- clipr::read_clip_tbl() # takes the output (with headers!) from the SQL query
+    write.csv(taghits_tracks, taghits_file)
+    })
+}
+
       
 #### map tracks ####
 ## Create a map of track and points (from taghits_tracks)
@@ -446,29 +471,6 @@ This map shows all the same animals as the table above, but displays all the add
 # define taghits_tracks file
 # don't pass this in if on the HQ server and can download this directly from the db
 taghits_file <- paste0(rootdir, 'taghits_tracks/', name, '_taghits_tracks.csv')
-
-
-# function to get the most recent taghits_tracks 
-get_taghits_tracks <- function(summary){
-  # construct the query to get the data from det_taghits_tracks
-  query <- paste0('select * from det_taghits_tracks where tagDeployId in (',
-                  toString(summary$tagDeployID), ')')  
-  
-  # try to connect to the database
-  tryCatch({
-    db <- connect_to_db()
-    taghits_tracks <- as.data.table(DBI::dbGetQuery(db, query)) %>%
-      mutate(begin_s = as.POSIXct(begin_s, tz = 'UTC', origin = '1970-01-01'),
-             end_s = as.POSIXct(end_s, tz = 'UTC', origin = '1970-01-01'))
-    write.csv(taghits_tracks, taghits_file)
-    }, error = function(e) {
-    message(query)
-    clipr::write_clip(query) # writes the query to the clipboard for easy pasting into SSMS
-    invisible(readline(prompt = 'Use query in remote desktop. \nCopy results with headers. \nPress enter when ready. '))
-    taghits_tracks <- clipr::read_clip_tbl() # takes the output (with headers!) from the SQL query
-    write.csv(taghits_tracks, taghits_file)
-    })
-}
 
 ## IF there are detections, get the most recent taghits_tracks file adn make map
 if (!toString(summary$tagDeployID) %in% c('', '0')) {
